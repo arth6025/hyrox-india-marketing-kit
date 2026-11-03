@@ -2,6 +2,10 @@
 
 Everything the HYROX India team needs to make on-brand social posts with Claude, in one install.
 
+> **Not technical? Start with [START-HERE.md](START-HERE.md).** Three steps, one sentence to paste, and Claude sets everything up for you.
+>
+> This is **version 1**. It keeps improving with your feedback, so tell us what's missing.
+
 ![HYROX India social templates](overview.png)
 
 ## What's inside
