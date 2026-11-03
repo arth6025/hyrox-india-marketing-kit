@@ -1,0 +1,34 @@
+{
+    "name": "marketing-kit",
+    "displayName": "Marketing Kit",
+    "version": "2.0.0",
+    "description": "A compiled library of 79 marketing and creative skills: popular marketing skills from GitHub, Higgsfield's skill files, and other useful frameworks for media generation. Covers product imagery, ad creative, UGC and product video, motion and logo animation, brand kits, social packs, e-commerce catalogue sets and campaign planning. Every paid step shows its cost and waits for your approval.",
+    "author": {
+        "name": "ShopOS",
+        "url": "https://sloosh.ai"
+    },
+    "homepage": "https://sloosh.ai/mcp",
+    "repository": "https://github.com/shopos/sloosh-skills",
+    "license": "MIT",
+    "keywords": [
+        "shopos",
+        "product-images",
+        "ad-creative",
+        "performance-marketing",
+        "ugc",
+        "video",
+        "motion-graphics",
+        "brand-kit",
+        "image-generation",
+        "video-generation",
+        "spaces",
+        "canvas",
+        "ecommerce",
+        "shopify"
+    ],
+    "icon": "./assets/sloosh.png",
+    "documentationUrl": "https://sloosh.ai/docs/mcp",
+    "supportUrl": "https://sloosh.ai/docs/support",
+    "privacyPolicyUrl": "https://sloosh.ai/privacy-policy",
+    "termsOfServiceUrl": "https://sloosh.ai/terms-of-use"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "hyrox-india",
+  "owner": { "name": "HYROX India x peakst8" },
+  "plugins": [
+    { "name": "hyrox-india-social", "source": "./hyrox-india-social", "description": "HYROX locked social templates: covers, content, finishers, stories." },
+    { "name": "marketing-kit", "source": "./marketing-kit", "description": "79 marketing and creative skills: copy, hooks, ads, image-to-video, Reels, captions, brand checks." },
+    { "name": "higgsfield", "source": { "source": "github", "repo": "higgsfield-ai/skills" }, "description": "Higgsfield AI: image and video generation (30+ models), Soul ID, product photoshoots, thumbnails, faceless video." }
+  ]
+}

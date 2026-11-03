@@ -1,0 +1,2169 @@
+[
+ {
+  "id": "brief-intake-1",
+  "skill": "brief-intake",
+  "user_prompt": "I need something for our Diwali sale",
+  "expected_skill": "brief-intake",
+  "expected_tools": [
+   "list_assets"
+  ],
+  "stop_condition": "shows the brief block and asks for one correction pass",
+  "pass": "brief has placements, deliverables with ratios, unknown fields marked; no quote",
+  "fail": "invents an offer or audience; calls quote_generation"
+ },
+ {
+  "id": "brief-intake-2",
+  "skill": "brief-intake",
+  "user_prompt": "Here is my product photo, what now?",
+  "expected_skill": "brief-intake",
+  "expected_tools": [
+   "view_asset"
+  ],
+  "stop_condition": "lists options with cost tiers and asks which",
+  "pass": "views the asset first; options reference real skills",
+  "fail": "generates without asking"
+ },
+ {
+  "id": "asset-manager-1",
+  "skill": "asset-manager",
+  "user_prompt": "Use the serum photo I uploaded yesterday",
+  "expected_skill": "asset-manager",
+  "expected_tools": [
+   "list_assets",
+   "view_asset",
+   "get_asset"
+  ],
+  "stop_condition": "returns a typed {kind,id,url,type,role} reference",
+  "pass": "url comes from get_asset.access.url",
+  "fail": "uses a card URL or guesses an id"
+ },
+ {
+  "id": "asset-manager-2",
+  "skill": "asset-manager",
+  "user_prompt": "Import the product image from https://example.com/p.jpg",
+  "expected_skill": "asset-manager",
+  "expected_tools": [
+   "import_asset",
+   "view_asset"
+  ],
+  "stop_condition": "asset imported and described in one line",
+  "pass": "name follows brand-product-role",
+  "fail": "tries curl or a page URL"
+ },
+ {
+  "id": "campaign-orchestrator-1",
+  "skill": "campaign-orchestrator",
+  "user_prompt": "Run the whole launch kit for the new sneaker",
+  "expected_skill": "campaign-orchestrator",
+  "expected_tools": [
+   "get_connection"
+  ],
+  "stop_condition": "shows a round table and asks to confirm the plan before any quote",
+  "pass": "round 2 items depend on round 1 outputs; one approval per round",
+  "fail": "quotes clips before hero stills exist"
+ },
+ {
+  "id": "campaign-orchestrator-2",
+  "skill": "campaign-orchestrator",
+  "user_prompt": "Diwali campaign: banners, three ads and a reel",
+  "expected_skill": "campaign-orchestrator",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces"
+  ],
+  "stop_condition": "plan confirmed, round 1 quotes listed with total",
+  "pass": "compares Space hold with remainingUnits",
+  "fail": "generates without a round approval"
+ },
+ {
+  "id": "creative-iteration-1",
+  "skill": "creative-iteration",
+  "user_prompt": "The label is misspelled on the second one, fix just that",
+  "expected_skill": "creative-iteration",
+  "expected_tools": [
+   "get_asset",
+   "view_asset",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "waits for approval of the edit quote",
+  "pass": "uses ideogram-4.5 or gpt-image-2.5-sunburst with the result as reference and a new -v2 key",
+  "fail": "reuses the original idempotency key"
+ },
+ {
+  "id": "creative-iteration-2",
+  "skill": "creative-iteration",
+  "user_prompt": "More like option 2 but with warmer light",
+  "expected_skill": "creative-iteration",
+  "expected_tools": [
+   "view_asset",
+   "quote_generation"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "option 2 passed as reference; prompt keeps scene and changes light only",
+  "fail": "re-rolls from scratch with no reference"
+ },
+ {
+  "id": "product-multi-angle-1",
+  "skill": "product-multi-angle",
+  "user_prompt": "Make a five-angle set of this sneaker",
+  "expected_skill": "product-multi-angle",
+  "expected_tools": [
+   "get_connection",
+   "view_asset",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval of the Space quote",
+  "pass": "Space product-multi-angle-shots chosen",
+  "fail": "five separate direct quotes without offering the Space"
+ },
+ {
+  "id": "product-multi-angle-2",
+  "skill": "product-multi-angle",
+  "user_prompt": "Give me the back and side of this bottle",
+  "expected_skill": "product-multi-angle",
+  "expected_tools": [
+   "get_connection",
+   "view_asset",
+   "list_models",
+   "quote_generation",
+   "quote_generation"
+  ],
+  "stop_condition": "waits for one approval of both quotes",
+  "pass": "prompt says only the camera position changes",
+  "fail": "changes backdrop or scale"
+ },
+ {
+  "id": "image-edit-retouch-1",
+  "skill": "image-edit-retouch",
+  "user_prompt": "Remove the price tag from this photo",
+  "expected_skill": "image-edit-retouch",
+  "expected_tools": [
+   "get_connection",
+   "view_asset",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "ideogram-4.5 with the source as reference and a change-only prompt",
+  "fail": "regenerates the whole scene"
+ },
+ {
+  "id": "image-edit-retouch-2",
+  "skill": "image-edit-retouch",
+  "user_prompt": "Cut the product out on a transparent background",
+  "expected_skill": "image-edit-retouch",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "Space background-remover-3 offered",
+  "fail": "direct generation prompt 'transparent background'"
+ },
+ {
+  "id": "background-swap-relight-1",
+  "skill": "background-swap-relight",
+  "user_prompt": "Place my bottle into this photo of our cafe and make the light match",
+  "expected_skill": "background-swap-relight",
+  "expected_tools": [
+   "get_connection",
+   "view_asset",
+   "list_spaces",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "Space product-in-scene-relight with both images",
+  "fail": "direct generation ignoring the scene photo"
+ },
+ {
+  "id": "background-swap-relight-2",
+  "skill": "background-swap-relight",
+  "user_prompt": "Put this candle on a marble bathroom counter with window light",
+  "expected_skill": "background-swap-relight",
+  "expected_tools": [
+   "get_connection",
+   "view_asset",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "prompt names light direction and contact shadow",
+  "fail": "no reference attached"
+ },
+ {
+  "id": "colourway-variants-1",
+  "skill": "colourway-variants",
+  "user_prompt": "Show this tote in black, navy and sand",
+  "expected_skill": "colourway-variants",
+  "expected_tools": [
+   "get_connection",
+   "view_asset",
+   "list_models",
+   "quote_generation",
+   "quote_generation",
+   "quote_generation"
+  ],
+  "stop_condition": "one approval for three quotes",
+  "pass": "keep-list names hardware and logo",
+  "fail": "Space default colours used when user gave custom ones"
+ },
+ {
+  "id": "colourway-variants-2",
+  "skill": "colourway-variants",
+  "user_prompt": "Make all six colourways from this photo",
+  "expected_skill": "colourway-variants",
+  "expected_tools": [
+   "get_connection",
+   "view_asset"
+  ],
+  "stop_condition": "presents six quotes with total or proposes a published canvas",
+  "pass": "mentions fan-out limits if canvas",
+  "fail": "runs a draft with fan-out"
+ },
+ {
+  "id": "upscale-and-finish-1",
+  "skill": "upscale-and-finish",
+  "user_prompt": "Make this hero image 4K for the homepage",
+  "expected_skill": "upscale-and-finish",
+  "expected_tools": [
+   "get_connection",
+   "get_asset",
+   "view_asset",
+   "list_spaces",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "notes regenerating at 4K may be cheaper if the source was a fresh render",
+  "fail": "upscales without viewing the source"
+ },
+ {
+  "id": "upscale-and-finish-2",
+  "skill": "upscale-and-finish",
+  "user_prompt": "We need this for a 6 by 4 foot banner",
+  "expected_skill": "upscale-and-finish",
+  "expected_tools": [
+   "get_connection",
+   "view_asset",
+   "create_draft",
+   "list_node_kinds",
+   "apply_canvas_operations",
+   "validate_canvas",
+   "quote_draft"
+  ],
+  "stop_condition": "waits for approval of the draft quote",
+  "pass": "Topaz 6x configured on the upscaler node",
+  "fail": "uses SeedVR2 beyond 8192 px"
+ },
+ {
+  "id": "reframe-outpaint-1",
+  "skill": "reframe-outpaint",
+  "user_prompt": "Make this landscape shot work as a 9:16 story",
+  "expected_skill": "reframe-outpaint",
+  "expected_tools": [
+   "get_connection",
+   "view_asset",
+   "list_spaces",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "Space change-aspect-ratio chosen; mentions story safe zone",
+  "fail": "crops the subject"
+ },
+ {
+  "id": "reframe-outpaint-2",
+  "skill": "reframe-outpaint",
+  "user_prompt": "Take this square ad and rebuild it for a 16:9 banner",
+  "expected_skill": "reframe-outpaint",
+  "expected_tools": [
+   "get_connection",
+   "view_asset",
+   "list_spaces",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "Space design-recomposer chosen; promises spelling check",
+  "fail": "treats a design as a photo"
+ },
+ {
+  "id": "style-reference-transfer-1",
+  "skill": "style-reference-transfer",
+  "user_prompt": "Shoot our serum like this campaign image",
+  "expected_skill": "style-reference-transfer",
+  "expected_tools": [
+   "get_connection",
+   "view_asset",
+   "view_asset",
+   "list_spaces",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "style note written; take/leave confirmed",
+  "fail": "copies the reference's product or text"
+ },
+ {
+  "id": "style-reference-transfer-2",
+  "skill": "style-reference-transfer",
+  "user_prompt": "Match the colour grade of these three stills on our sneaker photo",
+  "expected_skill": "style-reference-transfer",
+  "expected_tools": [
+   "get_connection",
+   "view_asset",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "gemini-3-pro-image-preview with subject first and three refs",
+  "fail": "style-match Space with more than one reference"
+ },
+ {
+  "id": "moodboard-exploration-1",
+  "skill": "moodboard-exploration",
+  "user_prompt": "Show me a few directions for a calm clinical skincare look",
+  "expected_skill": "moodboard-exploration",
+  "expected_tools": [
+   "get_connection",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "four direction notes confirmed, then one approval for the tile quotes",
+  "pass": "Lite model at 1K; contrasting directions",
+  "fail": "hero model at 4K for tiles"
+ },
+ {
+  "id": "moodboard-exploration-2",
+  "skill": "moodboard-exploration",
+  "user_prompt": "Give me nine variations of this product photo",
+  "expected_skill": "moodboard-exploration",
+  "expected_tools": [
+   "get_connection",
+   "view_asset",
+   "list_spaces",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "Space 9-variation-grid chosen",
+  "fail": "nine separate quotes"
+ },
+ {
+  "id": "published-spaces-1",
+  "skill": "published-spaces",
+  "user_prompt": "Run the UGC Selfie Video Ad Space on my product",
+  "expected_skill": "published-spaces",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "shows expected credits and maximum hold, waits for approval",
+  "pass": "inputs match form field ids; hold compared with remainingUnits",
+  "fail": "run_space before approval"
+ },
+ {
+  "id": "published-spaces-2",
+  "skill": "published-spaces",
+  "user_prompt": "Run the 3x3 ad grid again with the new photo",
+  "expected_skill": "published-spaces",
+  "expected_tools": [
+   "list_spaces",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "new quote and a -v2 key",
+  "fail": "reuses the previous quoteId"
+ },
+ {
+  "id": "space-builder-1",
+  "skill": "space-builder",
+  "user_prompt": "Build a Space that takes a product photo and gives me three scene shots and a PDF",
+  "expected_skill": "space-builder",
+  "expected_tools": [
+   "get_connection",
+   "list_templates",
+   "create_draft",
+   "get_canvas",
+   "list_node_kinds",
+   "apply_canvas_operations",
+   "validate_canvas",
+   "quote_draft"
+  ],
+  "stop_condition": "waits for approval of the draft quote",
+  "pass": "port names reference_images__0 and images__N used; set-output on deliverables",
+  "fail": "guessed port names or model ids"
+ },
+ {
+  "id": "space-builder-2",
+  "skill": "space-builder",
+  "user_prompt": "Brief in, shot list, one image per shot",
+  "expected_skill": "space-builder",
+  "expected_tools": [
+   "get_connection",
+   "search_examples",
+   "create_draft",
+   "get_canvas",
+   "list_node_kinds",
+   "apply_canvas_operations",
+   "validate_canvas"
+  ],
+  "stop_condition": "tests with a single value or proposes publish before fan-out",
+  "pass": "mentions draft_requires_single_sample",
+  "fail": "runs a fan-out draft"
+ },
+ {
+  "id": "batch-pipeline-1",
+  "skill": "batch-pipeline",
+  "user_prompt": "Run the white-background packshot on all 40 SKUs",
+  "expected_skill": "batch-pipeline",
+  "expected_tools": [
+   "get_connection"
+  ],
+  "stop_condition": "sizing plan: parts of 10, one-item draft test, publish, per-part quotes",
+  "pass": "respects 16-run warning and 64 rejection",
+  "fail": "one Space run with 40 iterations"
+ },
+ {
+  "id": "batch-pipeline-2",
+  "skill": "batch-pipeline",
+  "user_prompt": "Every colour of every bag with a contact sheet",
+  "expected_skill": "batch-pipeline",
+  "expected_tools": [
+   "get_connection"
+  ],
+  "stop_condition": "notes iterator multiplication and splits the runs",
+  "pass": "pdf-export via bundle; output_filename with {{skuCode}}",
+  "fail": "nests two iterators without sizing"
+ },
+ {
+  "id": "prompt-enhancer-workflow-1",
+  "skill": "prompt-enhancer-workflow",
+  "user_prompt": "Improve this prompt: bottle on table nice light",
+  "expected_skill": "prompt-enhancer-workflow",
+  "expected_tools": [
+   "list_models",
+   "enhance_prompt"
+  ],
+  "stop_condition": "shows the rewritten prompt and asks for edits",
+  "pass": "final prompt names reference 1 and the exact-keep line; hands off with enhancePrompt false",
+  "fail": "quotes a generation"
+ },
+ {
+  "id": "prompt-enhancer-workflow-2",
+  "skill": "prompt-enhancer-workflow",
+  "user_prompt": "Write me a strong Seedance prompt for a 10 second serum ad",
+  "expected_skill": "prompt-enhancer-workflow",
+  "expected_tools": [
+   "list_models",
+   "enhance_prompt"
+  ],
+  "stop_condition": "shows the shot list prompt for approval",
+  "pass": "one camera move per shot, sound line, keep-line",
+  "fail": "leaves {{tokens}} in the prompt"
+ },
+ {
+  "id": "B-adc-1",
+  "skill": "ad-concepts",
+  "user_prompt": "Give me ten ad concepts for our scalp serum aimed at women with hair fall",
+  "expected_skill": "ad-concepts",
+  "expected_tools": [],
+  "stop_condition": "delivers a concept sheet; no quote",
+  "pass": "6-12 concepts across >=4 segment x motivation cells, each with source, format, visual direction, producing skill and cost tier",
+  "fail": "invented stats or quotes; all concepts the same format; calls quote_generation"
+ },
+ {
+  "id": "B-adc-2",
+  "skill": "ad-concepts",
+  "user_prompt": "Build a creative roadmap for next month from these reviews",
+  "expected_skill": "ad-concepts",
+  "expected_tools": [],
+  "stop_condition": "asks for or uses evidence, outputs ranked concepts",
+  "pass": "evidence tiers assigned; account state named; receipts per concept",
+  "fail": "no sourcing; no account-state call"
+ },
+ {
+  "id": "B-sav-1",
+  "skill": "static-ad-variants",
+  "user_prompt": "Create three 9:16 ad variants for my summer sale on this sneaker",
+  "expected_skill": "static-ad-variants",
+  "expected_tools": [
+   "get_connection",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "waits for approval before generate",
+  "pass": "plate round then text round; one quote with generationCount 3 for the text variants; spelling QA with view_asset",
+  "fail": "generates before approval; text and plate in one uncontrolled roll; no view_asset"
+ },
+ {
+  "id": "B-sav-2",
+  "skill": "static-ad-variants",
+  "user_prompt": "Same ad in square, portrait and landscape",
+  "expected_skill": "static-ad-variants",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces"
+  ],
+  "stop_condition": "offers design-recomposer Space or three quotes; waits",
+  "pass": "routes a finished design to design-recomposer; otherwise one quote per ratio",
+  "fail": "one quote for all ratios; crops instead of recomposing"
+ },
+ {
+  "id": "B-ahm-1",
+  "skill": "ad-hook-matrix",
+  "user_prompt": "Test these three hooks for the serum on a grid of ad images",
+  "expected_skill": "ad-hook-matrix",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval before run_space",
+  "pass": "reads schema by field id; states expected credits and max hold; show_generation alone",
+  "fail": "assumes field names; mixes run into operationIds"
+ },
+ {
+  "id": "B-ahm-2",
+  "skill": "ad-hook-matrix",
+  "user_prompt": "Nine ad looks for one product so I can pick a direction",
+  "expected_skill": "ad-hook-matrix",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces"
+  ],
+  "stop_condition": "offers 3-3-product-ad-grid; waits",
+  "pass": "picks the cheaper grid Space since no hooks exist",
+  "fail": "asks the user to write three hooks first"
+ },
+ {
+  "id": "B-baa-1",
+  "skill": "before-after-ad",
+  "user_prompt": "Before and after ad for our descaler on a kettle",
+  "expected_skill": "before-after-ad",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "object transformation; both halves same framing; claim supportable",
+  "fail": "runs without confirming the claim"
+ },
+ {
+  "id": "B-baa-2",
+  "skill": "before-after-ad",
+  "user_prompt": "Transformation split screen for the whitening strips",
+  "expected_skill": "before-after-ad",
+  "expected_tools": [],
+  "stop_condition": "stops to ask for consented real frames or declines the outcome claim",
+  "pass": "flags body claim compliance before any quote",
+  "fail": "renders a fabricated teeth before/after"
+ },
+ {
+  "id": "B-cmp-1",
+  "skill": "comparison-ad",
+  "user_prompt": "Us vs them ad for our greens powder against typical multivitamins",
+  "expected_skill": "comparison-ad",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "4-6 sourced rows; them label neutral; row spelling QA",
+  "fail": "invents rows; names a competitor without consent"
+ },
+ {
+  "id": "B-cmp-2",
+  "skill": "comparison-ad",
+  "user_prompt": "Old way vs our way comparison for the bookkeeping app, five rows",
+  "expected_skill": "comparison-ad",
+  "expected_tools": [
+   "get_connection",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "direct route with gpt-image-2.5-sunburst or sensenova when no product photo",
+  "fail": "insists on a product photo"
+ },
+ {
+  "id": "B-tst-1",
+  "skill": "testimonial-ads",
+  "user_prompt": "Make testimonial ads from these three reviews of the serum",
+  "expected_skill": "testimonial-ads",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "confirms permission then waits for approval",
+  "pass": "quotes verbatim; names first-name only; QA character match",
+  "fail": "rewrites quotes; proceeds without permission check"
+ },
+ {
+  "id": "B-tst-2",
+  "skill": "testimonial-ads",
+  "user_prompt": "Put this 5-star review on an image with the product",
+  "expected_skill": "testimonial-ads",
+  "expected_tools": [
+   "get_connection",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "direct route, one quote, gpt-image-2.5-sunburst",
+  "fail": "uses a Space for a single card without saying why"
+ },
+ {
+  "id": "B-sbs-1",
+  "skill": "sale-banner-set",
+  "user_prompt": "Sale banners for 30% off the serum, all sizes",
+  "expected_skill": "sale-banner-set",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "offer text read back; four sizes; number QA via view_asset",
+  "fail": "wrong code or number undetected"
+ },
+ {
+  "id": "B-sbs-2",
+  "skill": "sale-banner-set",
+  "user_prompt": "Diwali offer banner set, code DIWALI20",
+  "expected_skill": "sale-banner-set",
+  "expected_tools": [
+   "get_connection"
+  ],
+  "stop_condition": "routes seasonal plate to seasonal-creatives first",
+  "pass": "chains seasonal-creatives then sale-banner-set",
+  "fail": "ignores the season"
+ },
+ {
+  "id": "B-rar-1",
+  "skill": "reference-ad-remix",
+  "user_prompt": "Make an ad like this one but with our bottle",
+  "expected_skill": "reference-ad-remix",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "describes what is borrowed; strips logos and copy; swap Space",
+  "fail": "carries the competitor logo or copy"
+ },
+ {
+  "id": "B-rar-2",
+  "skill": "reference-ad-remix",
+  "user_prompt": "Resize this ad to a story and a banner without cropping",
+  "expected_skill": "reference-ad-remix",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "design-recomposer Space, one quote per format",
+  "fail": "crops the design"
+ },
+ {
+  "id": "B-acv-1",
+  "skill": "ad-copy-variations",
+  "user_prompt": "Write 10 hooks for the serum ad aimed at hair fall",
+  "expected_skill": "ad-copy-variations",
+  "expected_tools": [],
+  "stop_condition": "delivers copy sheet; no quote",
+  "pass": "three-column hooks across >=5 moves with sources and hypotheses; no banned patterns",
+  "fail": "uses 'not X, it's Y'; single column hooks"
+ },
+ {
+  "id": "B-acv-2",
+  "skill": "ad-copy-variations",
+  "user_prompt": "RSA headlines and descriptions for our bookkeeping app",
+  "expected_skill": "ad-copy-variations",
+  "expected_tools": [],
+  "stop_condition": "delivers 15 headlines <=30 chars and 4 descriptions <=90",
+  "pass": "limits respected; numbers sourced",
+  "fail": "over limits; invented numbers"
+ },
+ {
+  "id": "B-ctp-1",
+  "skill": "creative-testing-plan",
+  "user_prompt": "How should we test these six variants?",
+  "expected_skill": "creative-testing-plan",
+  "expected_tools": [],
+  "stop_condition": "delivers plan; no quote",
+  "pass": "one variable per test; names match generation keys; thresholds and durations",
+  "fail": "multi-variable cells; no names"
+ },
+ {
+  "id": "B-ctp-2",
+  "skill": "creative-testing-plan",
+  "user_prompt": "Which of these should we run first with $500?",
+  "expected_skill": "creative-testing-plan",
+  "expected_tools": [],
+  "stop_condition": "delivers an order",
+  "pass": "downgrades to hook-rate test and says what it proves",
+  "fail": "promises CVR significance on $500"
+ },
+ {
+  "id": "B-cst-1",
+  "skill": "creative-strategy",
+  "user_prompt": "Give me creative directions for the serum launch",
+  "expected_skill": "creative-strategy",
+  "expected_tools": [],
+  "stop_condition": "delivers 3-5 territories; no quote",
+  "pass": "territories differ in kind; each has proof, deliverables, skills, tier, risk",
+  "fail": "five versions of one idea; no skills mapped"
+ },
+ {
+  "id": "B-cst-2",
+  "skill": "creative-strategy",
+  "user_prompt": "We have a product photo and a Diwali budget, what's the idea?",
+  "expected_skill": "creative-strategy",
+  "expected_tools": [],
+  "stop_condition": "delivers territories with a low-tier recommendation",
+  "pass": "recommends the territory with ready Spaces",
+  "fail": "recommends a code motion film for a low budget"
+ },
+ {
+  "id": "B-ssa-1",
+  "skill": "shopify-store-audit",
+  "user_prompt": "Audit our Shopify store's product images and tell me what's missing",
+  "expected_skill": "shopify-store-audit",
+  "expected_tools": [],
+  "stop_condition": "reads pages or asks for screenshots; delivers scored audit",
+  "pass": "every fix names a Sloosh skill and tier; findings cite what was seen",
+  "fail": "audits pages not read; no skill mapping"
+ },
+ {
+  "id": "B-ssa-2",
+  "skill": "shopify-store-audit",
+  "user_prompt": "Why does our store look cheap? Here are screenshots",
+  "expected_skill": "shopify-store-audit",
+  "expected_tools": [
+   "view_asset"
+  ],
+  "stop_condition": "delivers audit from screenshots",
+  "pass": "consistency findings; first sprint <=5 fixes",
+  "fail": "asks for a URL only"
+ },
+ {
+  "id": "B-cct-1",
+  "skill": "competitor-creative-teardown",
+  "user_prompt": "Here are 8 ads from our competitor's ad library, what are they doing?",
+  "expected_skill": "competitor-creative-teardown",
+  "expected_tools": [],
+  "stop_condition": "delivers pattern table and seeds",
+  "pass": "hook, format, proof, offer, world per asset; borrow/leave lists; no logos in briefs",
+  "fail": "copies competitor copy into a prompt"
+ },
+ {
+  "id": "B-cct-2",
+  "skill": "competitor-creative-teardown",
+  "user_prompt": "Break down this reel and tell me how we'd do our version",
+  "expected_skill": "competitor-creative-teardown",
+  "expected_tools": [],
+  "stop_condition": "delivers a ugc-storyboard brief",
+  "pass": "structure borrowed, product and proof ours",
+  "fail": "recreates their creator or logo"
+ },
+ {
+  "id": "B-lcp-1",
+  "skill": "launch-campaign-plan",
+  "user_prompt": "Plan the creative for our serum launch on 15 November",
+  "expected_skill": "launch-campaign-plan",
+  "expected_tools": [
+   "get_connection"
+  ],
+  "stop_condition": "delivers phased plan; no quote",
+  "pass": "assets mapped to skills, inputs, tiers, rounds; rounds sized to the daily ceiling",
+  "fail": "assets without a channel; rounds ignore the ceiling"
+ },
+ {
+  "id": "B-lcp-2",
+  "skill": "launch-campaign-plan",
+  "user_prompt": "What do we need to make for the Diwali sale and in what order?",
+  "expected_skill": "launch-campaign-plan",
+  "expected_tools": [],
+  "stop_condition": "delivers a short plan",
+  "pass": "reveal + launch phases; dependency order (plate before text, still before clip)",
+  "fail": "tease phase for a sale starting tomorrow"
+ },
+ {
+  "id": "B-cpr-1",
+  "skill": "creative-performance-retro",
+  "user_prompt": "Here are last week's numbers for the six variants, what do we do?",
+  "expected_skill": "creative-performance-retro",
+  "expected_tools": [],
+  "stop_condition": "delivers verdicts and briefs",
+  "pass": "funnel-stage diagnosis per row; under-volume rows marked continue; next round named by skill",
+  "fail": "judges rows under minimum volume; recommends near-duplicates of the winner"
+ },
+ {
+  "id": "B-cpr-2",
+  "skill": "creative-performance-retro",
+  "user_prompt": "Which hook won and what should we make next?",
+  "expected_skill": "creative-performance-retro",
+  "expected_tools": [
+   "list_assets"
+  ],
+  "stop_condition": "delivers learning and briefs",
+  "pass": "hypothesis confirmed or refuted with numbers; three visually different executions",
+  "fail": "vague 'make more like this'"
+ },
+ {
+  "id": "product-video-01",
+  "skill": "product-video",
+  "user_prompt": "Make a 5 second vertical clip of my candle flickering on a wooden table [photo attached]",
+  "expected_skill": "product-video",
+  "expected_tools": [
+   "get_connection",
+   "open_asset_upload",
+   "view_asset",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "waits for approval before generate",
+  "pass": "mode video_gen, 9:16, 5 s, product as reference, credits stated",
+  "fail": "generates without approval; picks an image model; re-describes the still"
+ },
+ {
+  "id": "product-video-02",
+  "skill": "product-video",
+  "user_prompt": "Turn this sneaker photo into a slow orbit video with sound",
+  "expected_skill": "product-video",
+  "expected_tools": [
+   "get_connection",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "kling-3.0 or seedance-2.5 with start_frame role, generateAudio true, one clip",
+  "fail": "two clips quoted; audio off; no start frame on Kling"
+ },
+ {
+  "id": "image-to-video-01",
+  "skill": "image-to-video",
+  "user_prompt": "Animate this packshot into a 5 second loop for the product page",
+  "expected_skill": "image-to-video",
+  "expected_tools": [
+   "get_connection",
+   "get_asset",
+   "view_asset",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "role start_frame, motion-only prompt, 5 s, loop wording",
+  "fail": "prompt re-describes the scene; no start_frame; video shown with images"
+ },
+ {
+  "id": "image-to-video-02",
+  "skill": "image-to-video",
+  "user_prompt": "Make the steam rise from this coffee photo, nothing else moves",
+  "expected_skill": "image-to-video",
+  "expected_tools": [
+   "get_connection",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "prompt names only the steam, camera static or slow push",
+  "fail": "regenerates the still; text in clip"
+ },
+ {
+  "id": "cinematic-product-film-01",
+  "skill": "cinematic-product-film",
+  "user_prompt": "Make a 30 second cinematic film for our new perfume",
+  "expected_skill": "cinematic-product-film",
+  "expected_tools": [
+   "get_connection",
+   "view_asset"
+  ],
+  "stop_condition": "storyboard shown and approval asked before any quote",
+  "pass": "4-8 shots, per-round cost tier, continuity block",
+  "fail": "quotes shots before storyboard approval; promises a joined MP4 without a canvas or editor"
+ },
+ {
+  "id": "cinematic-product-film-02",
+  "skill": "cinematic-product-film",
+  "user_prompt": "Six-shot launch spot for the headphones, 9:16, dark",
+  "expected_skill": "cinematic-product-film",
+  "expected_tools": [
+   "get_connection",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "round 1 keyframes quoted, one approval for the round",
+  "pass": "keyframes before clips; one show_generation for images; clips use start/end frames",
+  "fail": "clips quoted before keyframes exist; images and videos in one show_generation"
+ },
+ {
+  "id": "ugc-video-ad-01",
+  "skill": "ugc-video-ad",
+  "user_prompt": "Make a UGC ad for my face serum with this creator photo, 15 seconds, Hindi",
+  "expected_skill": "ugc-video-ad",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval, hold compared with remaining allowance",
+  "pass": "ugc-selfie-video-ad or ai-ugc-video-ad-creator chosen; consent asked once; show_generation alone",
+  "fail": "runs without quote; auto-approves a checkpoint; mixes run into operationIds"
+ },
+ {
+  "id": "ugc-video-ad-02",
+  "skill": "ugc-video-ad",
+  "user_prompt": "An unboxing clip of our sneakers, TikTok style",
+  "expected_skill": "ugc-video-ad",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "ugc-unboxing-clip selected",
+  "fail": "hand-builds shots instead of the Space"
+ },
+ {
+  "id": "ugc-storyboard-01",
+  "skill": "ugc-storyboard",
+  "user_prompt": "Write a UGC storyboard for my face serum and make the shots",
+  "expected_skill": "ugc-storyboard",
+  "expected_tools": [
+   "get_connection"
+  ],
+  "stop_condition": "script shown and approved before any quote",
+  "pass": "hook with three parts, 3-5 shots, two rounds explained, no joining promised",
+  "fail": "quotes before script approval"
+ },
+ {
+  "id": "ugc-storyboard-02",
+  "skill": "ugc-storyboard",
+  "user_prompt": "Plan a 5-shot creator video for the protein bar, then shoot it",
+  "expected_skill": "ugc-storyboard",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces"
+  ],
+  "stop_condition": "offers the UGC Space if it fits, else round 1 quotes",
+  "pass": "list_spaces UGC checked first",
+  "fail": "skips the Space check"
+ },
+ {
+  "id": "talking-head-video-01",
+  "skill": "talking-head-video",
+  "user_prompt": "Make this clip of our founder say the new 20 second pitch",
+  "expected_skill": "talking-head-video",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "talking-clip Space; script under 1000 chars; consent noted",
+  "fail": "picks grok when a clip exists; script over limit"
+ },
+ {
+  "id": "talking-head-video-02",
+  "skill": "talking-head-video",
+  "user_prompt": "Turn this headshot into a 10 second talking clip introducing the product",
+  "expected_skill": "talking-head-video",
+  "expected_tools": [
+   "get_connection",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "grok-imagine-1.5 video_gen, photo as reference, script in quotes, generateAudio true",
+  "fail": "uses lipsync Space without a clip"
+ },
+ {
+  "id": "captions-subtitles-01",
+  "skill": "captions-subtitles",
+  "user_prompt": "Add captions to this Reel",
+  "expected_skill": "captions-subtitles",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "add-captions Space; position advice for 9:16",
+  "fail": "builds a canvas for a default request"
+ },
+ {
+  "id": "captions-subtitles-02",
+  "skill": "captions-subtitles",
+  "user_prompt": "Burn Hindi subtitles, bold yellow highlight, bottom",
+  "expected_skill": "captions-subtitles",
+  "expected_tools": [
+   "get_connection",
+   "create_draft",
+   "get_canvas",
+   "list_node_kinds",
+   "apply_canvas_operations",
+   "validate_canvas",
+   "quote_draft"
+  ],
+  "stop_condition": "waits for approval before run_draft",
+  "pass": "video-subtitle node with language hi-IN, highlighted_color, position bottom; set-output",
+  "fail": "uses add-captions Space (no style control); invents a parameter"
+ },
+ {
+  "id": "video-extend-edit-01",
+  "skill": "video-extend-edit",
+  "user_prompt": "Extend this 5 second clip so the bottle keeps turning for 5 more seconds",
+  "expected_skill": "video-extend-edit",
+  "expected_tools": [
+   "get_connection",
+   "get_asset",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "mode video_extend with one owned video asset; seedance-2.5 or extend-video Space",
+  "fail": "mode video_gen; new key on retry"
+ },
+ {
+  "id": "video-extend-edit-02",
+  "skill": "video-extend-edit",
+  "user_prompt": "Make the background of this clip dusk instead of noon, keep the product",
+  "expected_skill": "video-extend-edit",
+  "expected_tools": [
+   "get_connection",
+   "get_asset",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "mode video_edit, gemini-omni-1.1-flash for a <=10 s source, keep-list in prompt",
+  "fail": "full regeneration; restyle route"
+ },
+ {
+  "id": "video-style-transfer-01",
+  "skill": "video-style-transfer",
+  "user_prompt": "Put this turntable clip in a Diwali living room instead of the studio",
+  "expected_skill": "video-style-transfer",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "product-scene-transformation Space",
+  "fail": "video_gen from scratch"
+ },
+ {
+  "id": "video-style-transfer-02",
+  "skill": "video-style-transfer",
+  "user_prompt": "Make this clip look like 35 mm film, keep everything else",
+  "expected_skill": "video-style-transfer",
+  "expected_tools": [
+   "get_connection",
+   "get_asset",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "video_edit on gemini-omni or seedance-2.5; even application wording",
+  "fail": "changes the product colours; chooses motion-replicate"
+ },
+ {
+  "id": "motion-replicate-01",
+  "skill": "motion-replicate",
+  "user_prompt": "Recreate this dance video with our mascot",
+  "expected_skill": "motion-replicate",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval; rights question asked",
+  "pass": "shadow-clone Motion Transfer; show_generation alone",
+  "fail": "object swap for a full rebuild; no rights question"
+ },
+ {
+  "id": "motion-replicate-02",
+  "skill": "motion-replicate",
+  "user_prompt": "Put our sneaker into this ad instead of theirs, keep everything else",
+  "expected_skill": "motion-replicate",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "shadow-clone Object Swap or create-ad-of-any-product; notes nothing of the original brand should survive",
+  "fail": "motion transfer chosen; copies competitor logo"
+ },
+ {
+  "id": "video-upscale-master-01",
+  "skill": "video-upscale-master",
+  "user_prompt": "Upscale this clip to 4K",
+  "expected_skill": "video-upscale-master",
+  "expected_tools": [
+   "get_connection",
+   "get_asset",
+   "create_draft",
+   "get_canvas",
+   "list_node_kinds",
+   "apply_canvas_operations",
+   "validate_canvas",
+   "quote_draft"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "canvas video-upscale 4x when source permits; delivery note on loudness/container",
+  "fail": "promises bt709/loudness via MCP"
+ },
+ {
+  "id": "video-upscale-master-02",
+  "skill": "video-upscale-master",
+  "user_prompt": "Make the hero loop sharper for the website",
+  "expected_skill": "video-upscale-master",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "video-upscale Space 2x for a <=20 s clip",
+  "fail": "regenerates the clip"
+ },
+ {
+  "id": "platform-content-pack-01",
+  "skill": "platform-content-pack",
+  "user_prompt": "Give me this hero in every size for Instagram, TikTok and YouTube",
+  "expected_skill": "platform-content-pack",
+  "expected_tools": [
+   "get_connection",
+   "get_asset",
+   "view_asset",
+   "list_spaces",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "one approval for the set",
+  "pass": "4:5, 9:16, 16:9 mapped; outpaint vs regenerate decided per ratio; safe zones",
+  "fail": "crops the hero; new concepts per channel"
+ },
+ {
+  "id": "platform-content-pack-02",
+  "skill": "platform-content-pack",
+  "user_prompt": "Feed and story versions of this ad with the headline",
+  "expected_skill": "platform-content-pack",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "design-recomposer Space for a design with text",
+  "fail": "outpaints text into seams"
+ },
+ {
+  "id": "carousel-builder-01",
+  "skill": "carousel-builder",
+  "user_prompt": "Make a 5-slide carousel about why our serum is different",
+  "expected_skill": "carousel-builder",
+  "expected_tools": [
+   "get_connection",
+   "view_asset"
+  ],
+  "stop_condition": "slide plan approved before any quote; slide 1 quoted first",
+  "pass": "framework chosen; GPT Image 2.5 for text slides; slide 1 as reference for others",
+  "fail": "all slides quoted blind; spelling unchecked"
+ },
+ {
+  "id": "carousel-builder-02",
+  "skill": "carousel-builder",
+  "user_prompt": "Standard product carousel: cover, feature, lifestyle, close",
+  "expected_skill": "carousel-builder",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "instagram-carousel Space",
+  "fail": "direct route for the standard case"
+ },
+ {
+  "id": "youtube-thumbnail-01",
+  "skill": "youtube-thumbnail",
+  "user_prompt": "Thumbnail for my video: I tested 5 scalp serums for 30 days",
+  "expected_skill": "youtube-thumbnail",
+  "expected_tools": [
+   "get_connection",
+   "view_asset",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "concept and headline approved, then quote, then approval",
+  "pass": "3-5 word headline; one focal subject; truthful claim",
+  "fail": "clutter; headline over 5 words; untrue promise"
+ },
+ {
+  "id": "youtube-thumbnail-02",
+  "skill": "youtube-thumbnail",
+  "user_prompt": "Shorts cover with my face and the words WORTH IT?",
+  "expected_skill": "youtube-thumbnail",
+  "expected_tools": [
+   "get_connection",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "9:16 direct route, face as reference",
+  "fail": "uses the 16:9 Space for a vertical cover"
+ },
+ {
+  "id": "reels-shorts-clip-01",
+  "skill": "reels-shorts-clip",
+  "user_prompt": "Make a Reel for the new candle, 9 seconds, with captions",
+  "expected_skill": "reels-shorts-clip",
+  "expected_tools": [
+   "get_connection",
+   "view_asset",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "plan approved; clip quoted; approval; captions quoted separately",
+  "pass": "hook in 3 s; 9:16 1080p; captions via Space after the clip",
+  "fail": "asks the video model to render captions; music promised without a canvas or Space"
+ },
+ {
+  "id": "reels-shorts-clip-02",
+  "skill": "reels-shorts-clip",
+  "user_prompt": "A TikTok of the sneaker with a hook and music",
+  "expected_skill": "reels-shorts-clip",
+  "expected_tools": [
+   "get_connection",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "three approvals in sequence (clip, captions, soundtrack)",
+  "pass": "add-a-soundtrack Space used for music",
+  "fail": "claims quote_generation can add music"
+ },
+ {
+  "id": "email-header-01",
+  "skill": "email-header",
+  "user_prompt": "Email header for our Diwali sale, 20% off, with the gift box",
+  "expected_skill": "email-header",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "email-whatsapp-header Space; message wording confirmed",
+  "fail": "long body copy on the image"
+ },
+ {
+  "id": "email-header-02",
+  "skill": "email-header",
+  "user_prompt": "Newsletter banner for the serum launch, no text, calm and clinical",
+  "expected_skill": "email-header",
+  "expected_tools": [
+   "get_connection",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "waits for approval",
+  "pass": "Nano Banana Pro 21:9 plate with empty copy space",
+  "fail": "renders text anyway"
+ },
+ {
+  "id": "seasonal-creatives-01",
+  "skill": "seasonal-creatives",
+  "user_prompt": "Diwali versions of our gift box ad, feed and story",
+  "expected_skill": "seasonal-creatives",
+  "expected_tools": [
+   "get_connection",
+   "view_asset",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "direction shown; one approval for the set",
+  "pass": "props from the festival guide; product colours kept; 4:5 and 9:16",
+  "fail": "product recoloured saffron; fireworks over the label"
+ },
+ {
+  "id": "seasonal-creatives-02",
+  "skill": "seasonal-creatives",
+  "user_prompt": "Eid greeting with our perfume bottle for WhatsApp",
+  "expected_skill": "seasonal-creatives",
+  "expected_tools": [
+   "get_connection",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "waits for approval; glyph check promised",
+  "pass": "1:1, GPT Image 2.5 for text, 'Eid Mubarak' verified with view_asset",
+  "fail": "ships broken Arabic glyphs; wrong greeting"
+ },
+ {
+  "id": "D-motion-director-1",
+  "skill": "motion-director",
+  "user_prompt": "We need a 20-second launch video for our new app",
+  "expected_skill": "motion-director",
+  "expected_tools": [
+   "get_connection"
+  ],
+  "stop_condition": "shows MOTION.md and asks for approval before any skill spends credits",
+  "pass": "format row chosen, three ideas, device and accent named, beat map with route per shot, engine recommended, no quote called",
+  "fail": "starts generating, or writes a brief with no shot routes, or picks an engine without checking for a local agent"
+ },
+ {
+  "id": "D-motion-director-2",
+  "skill": "motion-director",
+  "user_prompt": "Make a logo sting for Arata",
+  "expected_skill": "motion-director",
+  "expected_tools": [
+   "list_spaces"
+  ],
+  "stop_condition": "offers Space 3d-logo-animation as the no-code route and a code route, asks which",
+  "pass": "sting format (3-8 s), mark stays vector in code route, Space named as alternative",
+  "fail": "promises exact wordmark fidelity from AI video"
+ },
+ {
+  "id": "D-motion-film-code-1",
+  "skill": "motion-film-code",
+  "user_prompt": "Build the launch film from this MOTION brief with Remotion",
+  "expected_skill": "motion-film-code",
+  "expected_tools": [
+   "get_asset"
+  ],
+  "stop_condition": "requirements check passes, engine scaffolded, style stills rendered and shown before motion",
+  "pass": "cinetic scaffold used, Sloosh plates downloaded via get_asset access.url into public/sloosh, gates quoted in NOTE.md",
+  "fail": "uses card URLs as references, invents UI, certifies the film as good without gate numbers"
+ },
+ {
+  "id": "D-motion-film-code-2",
+  "skill": "motion-film-code",
+  "user_prompt": "Make a 6-second feature loop for our landing page in code (no shell available)",
+  "expected_skill": "motion-film-code",
+  "expected_tools": [],
+  "stop_condition": "stops after the requirements check and routes to pure-Sloosh skills",
+  "pass": "says the code build needs Claude Code or Cowork with a shell, offers image-to-video or product-animation",
+  "fail": "pretends to render"
+ },
+ {
+  "id": "D-motion-effects-library-1",
+  "skill": "motion-effects-library",
+  "user_prompt": "I want the words to fly past the camera like a tunnel",
+  "expected_skill": "motion-effects-library",
+  "expected_tools": [],
+  "stop_condition": "returns the card pick with path and requirements",
+  "pass": "names shotcraft typography/flying-words with its path, length, engine, and states no Sloosh equivalent",
+  "fail": "offers an AI video prompt for moving text as the primary route"
+ },
+ {
+  "id": "D-motion-effects-library-2",
+  "skill": "motion-effects-library",
+  "user_prompt": "Three outro ideas that end on the logo, I only have Sloosh",
+  "expected_skill": "motion-effects-library",
+  "expected_tools": [
+   "list_spaces"
+  ],
+  "stop_condition": "returns picks with Sloosh approximations and statuses",
+  "pass": "lists code cards and the Space 3d-logo-animation as ready-space alternative",
+  "fail": "spends credits"
+ },
+ {
+  "id": "D-motion-plates-1",
+  "skill": "motion-plates",
+  "user_prompt": "Make the four background plates from this MOTION brief in 16:9 and 9:16",
+  "expected_skill": "motion-plates",
+  "expected_tools": [
+   "get_connection",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "waits for approval of the quoted set before generate",
+  "pass": "spec list shown, drafts offered at 1K, finals 4K where zoomed, same model and seed across the set, each ratio generated not cropped",
+  "fail": "crops 16:9 to 9:16, or generates finals before approval"
+ },
+ {
+  "id": "D-motion-plates-2",
+  "skill": "motion-plates",
+  "user_prompt": "Give me a cut-out of the bottle with a transparent background",
+  "expected_skill": "motion-plates",
+  "expected_tools": [
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval of the Space quote",
+  "pass": "uses Space background-remover-3, delivers PNG via get_space_run_outputs",
+  "fail": "asks an image model to render transparency"
+ },
+ {
+  "id": "D-logo-animation-1",
+  "skill": "logo-animation",
+  "user_prompt": "Animate our logo as a 5-second intro",
+  "expected_skill": "logo-animation",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "shows credits and waits before run_space",
+  "pass": "asks whether the mark must stay exact, states the AI drift risk, runs 3d-logo-animation after approval, show_generation once",
+  "fail": "reuses a card quote, or promises alpha output"
+ },
+ {
+  "id": "D-logo-animation-2",
+  "skill": "logo-animation",
+  "user_prompt": "Outro sting: the wordmark forms from the icon, 9:16",
+  "expected_skill": "logo-animation",
+  "expected_tools": [
+   "quote_generation"
+  ],
+  "stop_condition": "two stills approved, then kling-o3 quote approved",
+  "pass": "route C with start_frame and end_frame roles, flags needs-validation, offers code route if type blurs",
+  "fail": "asks the video model to type the wordmark"
+ },
+ {
+  "id": "D-product-animation-1",
+  "skill": "product-animation",
+  "user_prompt": "Make an exploded view animation of our earbuds",
+  "expected_skill": "product-animation",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "waits for approval before run_space",
+  "pass": "checks for a white-background packshot first, resolves Space by list_spaces, idempotency key from the request",
+  "fail": "hardcodes a Space id without re-resolving, or mixes the run into operationIds"
+ },
+ {
+  "id": "D-product-animation-2",
+  "skill": "product-animation",
+  "user_prompt": "Orbit the serum bottle with three feature labels, 9:16",
+  "expected_skill": "product-animation",
+  "expected_tools": [
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "approval",
+  "pass": "feature-callout-orbit, each feature at most 4 words",
+  "fail": "long feature strings"
+ },
+ {
+  "id": "D-kinetic-typography-1",
+  "skill": "kinetic-typography",
+  "user_prompt": "Kinetic type promo for the Diwali sale, 12 seconds, 9:16",
+  "expected_skill": "kinetic-typography",
+  "expected_tools": [],
+  "stop_condition": "routes to code with a beat map; Sloosh only for plates",
+  "pass": "copy cut to budget, accent word per line, code route chosen for multi-line type",
+  "fail": "generates the whole promo as AI video"
+ },
+ {
+  "id": "D-kinetic-typography-2",
+  "skill": "kinetic-typography",
+  "user_prompt": "A typographic end card that says 'Live now' and morphs into 'Shop now'",
+  "expected_skill": "kinetic-typography",
+  "expected_tools": [
+   "list_models",
+   "quote_generation",
+   "view_asset"
+  ],
+  "stop_condition": "frames verified letter by letter before the morph quote",
+  "pass": "GPT Image 2.5 frames, kling-o3 start and end frame, risk stated, stills kept as fallback",
+  "fail": "skips view_asset on the text frames"
+ },
+ {
+  "id": "D-transitions-and-morphs-1",
+  "skill": "transitions-and-morphs",
+  "user_prompt": "Morph the packshot from the black colourway to the sand one",
+  "expected_skill": "transitions-and-morphs",
+  "expected_tools": [
+   "view_asset",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "waits for approval before generate",
+  "pass": "checks both frames share ratio and framing, kling-o3 with start_frame and end_frame roles, 3 s, holds last second",
+  "fail": "uses only one frame as reference"
+ },
+ {
+  "id": "D-transitions-and-morphs-2",
+  "skill": "transitions-and-morphs",
+  "user_prompt": "Join these four transition clips into one video",
+  "expected_skill": "transitions-and-morphs",
+  "expected_tools": [],
+  "stop_condition": "explains concat is canvas-only and hands to space-builder or batch-pipeline",
+  "pass": "no attempt to concat via quote_generation",
+  "fail": "claims the MCP can join clips directly"
+ },
+ {
+  "id": "D-animated-chart-1",
+  "skill": "animated-chart",
+  "user_prompt": "Animate our Q3 results: 12k, 18k, 31k, 44k orders",
+  "expected_skill": "animated-chart",
+  "expected_tools": [],
+  "stop_condition": "echoes the values and asks if real or sample before building",
+  "pass": "code route, values unchanged, seek(seconds), loop seam check, no AI video for data",
+  "fail": "offers Seedance to animate the chart"
+ },
+ {
+  "id": "D-animated-chart-2",
+  "skill": "animated-chart",
+  "user_prompt": "A static infographic of these numbers for an email",
+  "expected_skill": "animated-chart",
+  "expected_tools": [
+   "list_models",
+   "quote_generation",
+   "view_asset"
+  ],
+  "stop_condition": "approval, then every digit read back from the image",
+  "pass": "sensenova-u1-infographic, digits verified, not delivered if any digit is wrong",
+  "fail": "delivers without reading the numbers"
+ },
+ {
+  "id": "D-reference-to-motion-1",
+  "skill": "reference-to-motion",
+  "user_prompt": "Make a reel like this one for our serum",
+  "expected_skill": "reference-to-motion",
+  "expected_tools": [
+   "get_connection",
+   "view_asset"
+  ],
+  "stop_condition": "style guide and shot list shown, rights note stated, path chosen with the user",
+  "pass": "takes rhythm and structure only, marks routes per shot, hands to motion-director",
+  "fail": "copies the reference's copy, logos or music"
+ },
+ {
+  "id": "D-reference-to-motion-2",
+  "skill": "reference-to-motion",
+  "user_prompt": "Put our sneaker into this ad's structure",
+  "expected_skill": "reference-to-motion",
+  "expected_tools": [
+   "list_spaces",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "approval of the Space quote",
+  "pass": "create-ad-of-any-product or shadow-clone offered with hold compared to the daily remainder",
+  "fail": "runs without showing the maximum hold"
+ },
+ {
+  "id": "D-ui-product-demo-1",
+  "skill": "ui-product-demo",
+  "user_prompt": "Turn our dashboard into a 30-second product video",
+  "expected_skill": "ui-product-demo",
+  "expected_tools": [],
+  "stop_condition": "requirements check, mode chosen, real screens captured before storyboard",
+  "pass": "Ink Press template or cards, no invented screens, Sloosh only for ambient plates",
+  "fail": "generates UI with an image model"
+ },
+ {
+  "id": "D-ui-product-demo-2",
+  "skill": "ui-product-demo",
+  "user_prompt": "Add a founder intro from this talking clip to the demo",
+  "expected_skill": "ui-product-demo",
+  "expected_tools": [
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "approval",
+  "pass": "Space multi-camera-edit with clip and face photo",
+  "fail": "invents camera angles with text-to-video"
+ },
+ {
+  "id": "D-soundtrack-and-voice-1",
+  "skill": "soundtrack-and-voice",
+  "user_prompt": "Put a calm piano bed under this product clip",
+  "expected_skill": "soundtrack-and-voice",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "approval before run_space",
+  "pass": "Space add-a-soundtrack, states that quote_generation cannot make audio",
+  "fail": "tries quote_generation with an audio mode"
+ },
+ {
+  "id": "D-soundtrack-and-voice-2",
+  "skill": "soundtrack-and-voice",
+  "user_prompt": "Make a voiceover with the Charlie voice over this b-roll and keep the original clip audio",
+  "expected_skill": "soundtrack-and-voice",
+  "expected_tools": [
+   "create_draft",
+   "list_node_kinds",
+   "apply_canvas_operations",
+   "validate_canvas",
+   "quote_draft"
+  ],
+  "stop_condition": "approval of the draft quote",
+  "pass": "canvas with text-to-speech (voice Charlie) and merge-audio-video, tells the user merge replaces the original audio and there is no mixer node",
+  "fail": "claims the original audio is kept"
+ },
+ {
+  "id": "D-reel-export-1",
+  "skill": "reel-export",
+  "user_prompt": "Make this landscape promo a Reel with the hook 'This launch / is 100% code'",
+  "expected_skill": "reel-export",
+  "expected_tools": [],
+  "stop_condition": "ffmpeg confirmed, overlay built, encode, probe report shown",
+  "pass": "safe zone respected, h264 yuv420p tv bt709 faststart, silent AAC when no audio",
+  "fail": "tries to reframe the video through Sloosh"
+ },
+ {
+  "id": "D-reel-export-2",
+  "skill": "reel-export",
+  "user_prompt": "Make this poster 9:16 without cropping",
+  "expected_skill": "reel-export",
+  "expected_tools": [
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "approval",
+  "pass": "Space change-aspect-ratio for the still",
+  "fail": "crops"
+ },
+ {
+  "id": "D-launch-film-1",
+  "skill": "launch-film",
+  "user_prompt": "Make a 30-second launch film for our app from PART 1.mp3 and our website",
+  "expected_skill": "launch-film",
+  "expected_tools": [],
+  "stop_condition": "inventory, transcription and shot plan before any code; Sloosh quotes only for missing imagery after approval",
+  "pass": "transcription is the source of truth, every boundary a match cut, README lists mocks and generated items",
+  "fail": "trusts the script document over the recording"
+ },
+ {
+  "id": "D-launch-film-2",
+  "skill": "launch-film",
+  "user_prompt": "The cake hero shot is missing, make it with Sloosh",
+  "expected_skill": "launch-film",
+  "expected_tools": [
+   "get_connection",
+   "list_models",
+   "quote_generation",
+   "generate",
+   "show_generation",
+   "get_asset"
+  ],
+  "stop_condition": "approval before generate",
+  "pass": "idempotency key like launch-film-cake-hero-v1, downloads via get_asset access.url into public/pack",
+  "fail": "uses a card URL"
+ },
+ {
+  "id": "E-bke-1",
+  "skill": "brand-kit-extract",
+  "user_prompt": "Here is our brand guide PDF, use it for everything we make today",
+  "expected_skill": "brand-kit-extract",
+  "expected_tools": [],
+  "stop_condition": "Builds the brand_kit from the PDF and asks the user to confirm before any downstream skill uses it.",
+  "pass": "Kit shown with hexes traced to the guide, unknowns marked unknown, no credits spent.",
+  "fail": "Guesses colours not in the guide, or starts generating before confirmation."
+ },
+ {
+  "id": "E-bke-2",
+  "skill": "brand-kit-extract",
+  "user_prompt": "I only have the logo, work out a palette we can use",
+  "expected_skill": "brand-kit-extract",
+  "expected_tools": [
+   "get_connection",
+   "open_asset_upload",
+   "view_asset",
+   "list_spaces",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "Uses palette-from-moodboard-images Space, transcribes hexes from the card, marks type and photography unknown.",
+  "fail": "Invents a full kit from the logo alone or skips the quote."
+ },
+ {
+  "id": "E-lfb-1",
+  "skill": "logo-from-brief",
+  "user_prompt": "Logo ideas for Arata, a scalp care brand, calm and clinical, forest green",
+  "expected_skill": "logo-from-brief",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "Tells the user output is PNG not SVG; one Space quote; concepts viewed and spelling checked.",
+  "fail": "Promises vector files; multiple quotes without one approval list."
+ },
+ {
+  "id": "E-lfb-2",
+  "skill": "logo-from-brief",
+  "user_prompt": "Refine option 2, thinner letters, drop the leaf",
+  "expected_skill": "logo-from-brief",
+  "expected_tools": [
+   "get_connection",
+   "get_asset",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "One edit quote on ideogram-4.5 or gpt-image-2.5-sunburst with option 2 as reference and a 'change only' prompt.",
+  "fail": "Regenerates from scratch or picks a model that drifts."
+ },
+ {
+  "id": "E-bb-1",
+  "skill": "brand-board",
+  "user_prompt": "Make a brand board for Arata with our logo and forest green",
+  "expected_skill": "brand-board",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "brand-board Space run shown alone; hexes checked with view_asset.",
+  "fail": "Direct-generates six pages without offering the Space."
+ },
+ {
+  "id": "E-bb-2",
+  "skill": "brand-board",
+  "user_prompt": "Turn this brand kit into a one-page visual overview I can send to the designer",
+  "expected_skill": "brand-board",
+  "expected_tools": [
+   "get_connection",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "Single direct quote on gpt-image-2.5-sunburst with swatches and hex labels.",
+  "fail": "Uses a model that garbles text."
+ },
+ {
+  "id": "E-bcc-1",
+  "skill": "brand-consistency-check",
+  "user_prompt": "Check these six ad images against our brand kit before we post",
+  "expected_skill": "brand-consistency-check",
+  "expected_tools": [
+   "get_asset",
+   "view_asset"
+  ],
+  "stop_condition": "Returns a pass/fix table; spends nothing.",
+  "pass": "Six view_asset calls; each fix names a skill.",
+  "fail": "Calls quote_generation or regenerates images."
+ },
+ {
+  "id": "E-bcc-2",
+  "skill": "brand-consistency-check",
+  "user_prompt": "Is this hero shot on-brand for Arata?",
+  "expected_skill": "brand-consistency-check",
+  "expected_tools": [
+   "view_asset"
+  ],
+  "stop_condition": "One row verdict, no credits.",
+  "pass": "Describes the image before judging; marks unknown checks n.a.",
+  "fail": "Guesses without viewing."
+ },
+ {
+  "id": "E-mpm-1",
+  "skill": "merch-packaging-mockups",
+  "user_prompt": "Show our logo on a cap, a tote and a hoodie",
+  "expected_skill": "merch-packaging-mockups",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "merch-mockups Space; QA artwork fidelity with view_asset.",
+  "fail": "Direct-generates without the logo as reference."
+ },
+ {
+  "id": "E-mpm-2",
+  "skill": "merch-packaging-mockups",
+  "user_prompt": "Fold this dieline into a box I can show the client",
+  "expected_skill": "merch-packaging-mockups",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "packaging-from-dieline Space with the dieline upload.",
+  "fail": "Uses a generic image model and invents panels."
+ },
+ {
+  "id": "E-bis-1",
+  "skill": "brand-icon-set",
+  "user_prompt": "Nine icons for our PDP: shipping, returns, vegan, cruelty-free, dermatologist, 30-day, recyclable, made in India, paraben-free",
+  "expected_skill": "brand-icon-set",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "brand-icon-set Space; confirms drawable nouns first; checks order in view_asset.",
+  "fail": "More than 9 icons per sheet or labels rendered unasked."
+ },
+ {
+  "id": "E-bis-2",
+  "skill": "brand-icon-set",
+  "user_prompt": "Redo the shipping icon as a scooter",
+  "expected_skill": "brand-icon-set",
+  "expected_tools": [
+   "get_connection",
+   "get_asset",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "One ideogram-4.5 quote with the sheet as reference, 'change only' prompt.",
+  "fail": "Regenerates the whole sheet."
+ },
+ {
+  "id": "E-spk-1",
+  "skill": "social-profile-kit",
+  "user_prompt": "Set up our Instagram and LinkedIn profiles with our logo and colours",
+  "expected_skill": "social-profile-kit",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "social-profile-kit Space; lists export pixel sizes; circle-crop check.",
+  "fail": "Claims exact pixel output from the model."
+ },
+ {
+  "id": "E-spk-2",
+  "skill": "social-profile-kit",
+  "user_prompt": "YouTube banner with our tagline, nothing else",
+  "expected_skill": "social-profile-kit",
+  "expected_tools": [
+   "get_connection",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "gpt-image-2.5-sunburst 16:9 with tagline in quotes; spelling checked.",
+  "fail": "Uses recraft (no refs) with the logo required."
+ },
+ {
+  "id": "E-alp-1",
+  "skill": "amazon-listing-pack",
+  "user_prompt": "Amazon images for our scalp serum: main, lifestyle, size in hand, close-up, a features image",
+  "expected_skill": "amazon-listing-pack",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "amazon-listing-pack Space plus one GPT Image callout quote; facts verbatim; main checked for white and fill.",
+  "fail": "Invents features or badges."
+ },
+ {
+  "id": "E-alp-2",
+  "skill": "amazon-listing-pack",
+  "user_prompt": "Add an infographic image with the three key benefits to our listing",
+  "expected_skill": "amazon-listing-pack",
+  "expected_tools": [
+   "get_connection",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "Single gpt-image-2.5-sunburst quote with the product reference and exact benefits.",
+  "fail": "Uses sensenova with the product expected to appear."
+ },
+ {
+  "id": "E-wbc-1",
+  "skill": "white-background-compliance",
+  "user_prompt": "Put this kettle on a pure white background for Amazon",
+  "expected_skill": "white-background-compliance",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "Offers strict route (background-remover-3 then resize canvas) and explains generated white is not exact.",
+  "fail": "Only generates a studio white and calls it compliant."
+ },
+ {
+  "id": "E-wbc-2",
+  "skill": "white-background-compliance",
+  "user_prompt": "Cut out the sneaker and give me a clean white version",
+  "expected_skill": "white-background-compliance",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "Asks strict vs natural once; checks edges for thin parts.",
+  "fail": "Skips the strictness question and the edge QA."
+ },
+ {
+  "id": "E-gm-1",
+  "skill": "ghost-mannequin",
+  "user_prompt": "Ghost mannequin front and back for this kurta from the model shots",
+  "expected_skill": "ghost-mannequin",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "ghost-mannequin Space for front; direct back view with the front result as continuity reference.",
+  "fail": "Back view generated without any reference."
+ },
+ {
+  "id": "E-gm-2",
+  "skill": "ghost-mannequin",
+  "user_prompt": "Take the jacket off the hanger and show it filled out on white",
+  "expected_skill": "ghost-mannequin",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "Space run; QA for hanger remnants.",
+  "fail": "Leaves hanger or hand remnants unflagged."
+ },
+ {
+  "id": "E-vto-1",
+  "skill": "virtual-try-on",
+  "user_prompt": "Put this kurta on the model in photo 2, keep her pose",
+  "expected_skill": "virtual-try-on",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "Asks consent once; virtual-try-on-2 Space; QA identity and print.",
+  "fail": "Starts without consent; changes the pose."
+ },
+ {
+  "id": "E-vto-2",
+  "skill": "virtual-try-on",
+  "user_prompt": "Show these sunglasses on this face",
+  "expected_skill": "virtual-try-on",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "glasses-try-on Space; scale and reflections checked.",
+  "fail": "Uses the garment Space for eyewear."
+ },
+ {
+  "id": "E-fls-1",
+  "skill": "fashion-lookbook-set",
+  "user_prompt": "Shoot this kurta on a model: hero, three poses, one detail, studio grey",
+  "expected_skill": "fashion-lookbook-set",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "Writes the shot table; on-model-studio-shoot Space; one approval for the round; continuity QA.",
+  "fail": "Runs several Spaces with separate approvals and no shot list."
+ },
+ {
+  "id": "E-fls-2",
+  "skill": "fashion-lookbook-set",
+  "user_prompt": "Lookbook for 8 pieces with the same model, plus a short clip each, as a PDF",
+  "expected_skill": "fashion-lookbook-set",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "Round 1 images approved before round 2 clips; PDF via canvas pdf-export after approvals.",
+  "pass": "Compares total hold with remainingUnits; two rounds; PDF canvas.",
+  "fail": "Tries fan-out in a draft run or quotes clips before frames exist."
+ },
+ {
+  "id": "E-pir-1",
+  "skill": "product-in-room",
+  "user_prompt": "Show this three-seater in my living room photo, against the back wall",
+  "expected_skill": "product-in-room",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "product-in-room Space; scale and shadow QA.",
+  "fail": "Changes other furniture unasked."
+ },
+ {
+  "id": "E-pir-2",
+  "skill": "product-in-room",
+  "user_prompt": "Put the floor lamp next to the armchair and match the evening light",
+  "expected_skill": "product-in-room",
+  "expected_tools": [
+   "get_connection",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "Direct seedream-5-0-pro with room as ref 1, product as ref 2, placement and scale cues.",
+  "fail": "No scale cue; floating product passes QA."
+ },
+ {
+  "id": "E-fps-1",
+  "skill": "food-photo-studio",
+  "user_prompt": "Make this biryani photo look like a menu shot",
+  "expected_skill": "food-photo-studio",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "commercial-food-photo-studio Space; ingredient list from view_asset; no added ingredients.",
+  "fail": "Prompt adds garnish not in the dish."
+ },
+ {
+  "id": "E-fps-2",
+  "skill": "food-photo-studio",
+  "user_prompt": "Three delivery-app images for our new burger, bright and clean",
+  "expected_skill": "food-photo-studio",
+  "expected_tools": [
+   "get_connection",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "One direct quote 1:1 generationCount 3 on gemini-3-pro-image-preview.",
+  "fail": "Three separate quotes for one prompt."
+ },
+ {
+  "id": "E-cb-1",
+  "skill": "collection-banner",
+  "user_prompt": "Homepage banner with our three serums on one shelf, text goes on the left",
+  "expected_skill": "collection-banner",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "collection-banner Space; headline zone left checked clean; no text rendered.",
+  "fail": "Renders the headline into the image."
+ },
+ {
+  "id": "E-cb-2",
+  "skill": "collection-banner",
+  "user_prompt": "Collection header for the summer linen range, 21:9 and a mobile version",
+  "expected_skill": "collection-banner",
+  "expected_tools": [
+   "get_connection",
+   "list_spaces",
+   "get_space",
+   "get_space_input_schema",
+   "quote_space",
+   "list_models",
+   "quote_generation"
+  ],
+  "stop_condition": "Waits for the user's approval before run_space/generate; shows credits in plain words.",
+  "pass": "Space for 21:9 and a direct 4:5 stacked generation, one approval list.",
+  "fail": "Crops the 21:9 to 4:5 and loses products."
+ }
+]

@@ -1,0 +1,5 @@
+{"format":"story","out":"../renders/07-story","slides":[
+ {"template":"cover-full","label":"HYROX INDIA","headline":"OH MY\nHEADLINE\nHERE","photo":"sled-push","logo_on_photo":true},
+ {"template":"list","headline":"INSIDE","items":["Race-day timings","The 8 stations","Spectator guide","After-party"],"photo":"rower-man","label":"SWIPE UP"},
+ {"template":"cta","headline":"SPACE\nFOR\nCTA HERE","button":"REGISTER","subline":"SUBLINE HERE"}
+]}

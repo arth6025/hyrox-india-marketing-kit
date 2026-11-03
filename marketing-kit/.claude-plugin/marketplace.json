@@ -1,0 +1,11 @@
+{
+  "name": "shopos",
+  "owner": { "name": "ShopOS" },
+  "plugins": [
+    {
+      "name": "marketing-kit",
+      "source": "./",
+      "description": "79 marketing and creative skills: product imagery, ads, AI video, motion, brand, social, e-commerce."
+    }
+  ]
+}

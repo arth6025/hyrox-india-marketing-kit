@@ -1,0 +1,1141 @@
+{
+  "verified_on": "2026-10-22",
+  "source": "list_spaces (scope all, pages 1-3). Public Spaces published by other workspaces appear with ownedByThisWorkspace=false; they are runnable but can change or disappear. Always re-resolve with list_spaces(search) at run time.",
+  "spaces": [
+    {
+      "slug": "email-whatsapp-header",
+      "spaceId": "sp_2dc8b733-29ac-4c9b-a5ef-b3aa16c87bc7",
+      "title": "Email & WhatsApp Header",
+      "output": [
+        "image"
+      ],
+      "domain": "advertising",
+      "summary": "Product photo + mood + message -> wide email headers and a matching square."
+    },
+    {
+      "slug": "before-after-ad",
+      "spaceId": "sp_b41e0982-6888-4b6a-aaf0-ea8bcb938f93",
+      "title": "Before / After Ad",
+      "output": [
+        "image"
+      ],
+      "domain": "advertising",
+      "summary": "Product + problem statement -> split-screen ad with copy."
+    },
+    {
+      "slug": "ad-hook-test-matrix",
+      "spaceId": "sp_3c53fe19-0bae-480c-a177-e475697fe0f8",
+      "title": "Ad Hook Test Matrix",
+      "output": [
+        "image"
+      ],
+      "domain": "advertising",
+      "summary": "Product + three hooks -> studio, lifestyle and handheld creatives per hook."
+    },
+    {
+      "slug": "sale-offer-banner-set",
+      "spaceId": "sp_837c0e5b-ea1e-4681-863d-e8dbe0a37613",
+      "title": "Sale & Offer Banner Set",
+      "output": [
+        "image"
+      ],
+      "domain": "advertising",
+      "summary": "Product + promo text -> square, portrait, story and landscape banners."
+    },
+    {
+      "slug": "us-vs-them-comparison",
+      "spaceId": "sp_40fb9ab2-0a96-4f40-b697-07b090a1c66b",
+      "title": "Us vs Them Comparison",
+      "output": [
+        "image"
+      ],
+      "domain": "advertising",
+      "summary": "Product + comparison points -> editorial comparison ad."
+    },
+    {
+      "slug": "review-card-creatives",
+      "spaceId": "sp_1200adb7-ea36-46f9-acd5-2e65230a63ab",
+      "title": "Review Card Creatives",
+      "output": [
+        "image"
+      ],
+      "domain": "advertising",
+      "summary": "Product + three reviews -> three testimonial ad images."
+    },
+    {
+      "slug": "swap-product-into-a-reference-ad",
+      "spaceId": "sp_d3b3f14d-d7e3-4caf-bdfd-35a1aa979562",
+      "title": "Swap Product into a Reference Ad",
+      "output": [
+        "image"
+      ],
+      "domain": "advertising",
+      "summary": "Product + reference ad -> same layout with your product as hero."
+    },
+    {
+      "slug": "3-3-product-ad-grid",
+      "spaceId": "sp_0516fd12-81d9-4bde-b3e0-36c94d902561",
+      "title": "3x3 Product Ad Grid",
+      "output": [
+        "image"
+      ],
+      "domain": "advertising",
+      "summary": "One product photo -> nine ad concept tiles."
+    },
+    {
+      "slug": "product-poster-ad-creative",
+      "spaceId": "sp_67d46254-de4c-4b7c-a06c-f9b18d8f3d7a",
+      "title": "Product Poster / Ad Creative",
+      "output": [
+        "image"
+      ],
+      "domain": "advertising",
+      "summary": "Product + headline -> vertical poster with rendered text (GPT Image)."
+    },
+    {
+      "slug": "design-recomposer",
+      "spaceId": "sp_65796cf2-f0fe-4e50-9981-71f97b82c797",
+      "title": "Design Recomposer",
+      "output": [
+        "image"
+      ],
+      "domain": "advertising",
+      "summary": "Finished ad + new format -> re-laid-out creative without cropping."
+    },
+    {
+      "slug": "poster-scene-mockups",
+      "spaceId": "sp_47dc5793-8f8c-4893-8e67-6073a4e99f21",
+      "title": "Poster Scene Mockups",
+      "output": [
+        "image"
+      ],
+      "domain": "advertising",
+      "summary": "Poster -> framed print, bus stop, billboard, phone mockups."
+    },
+    {
+      "slug": "led-billboard-message",
+      "spaceId": "sp_222b0d36-c7bf-4c8f-bc0b-c3f8befb92b5",
+      "title": "LED Billboard Message",
+      "output": [
+        "video"
+      ],
+      "domain": "advertising",
+      "summary": "Short message -> night billboard still + 6 s push-in."
+    },
+    {
+      "slug": "create-ad-of-any-product",
+      "spaceId": "sp_f6ebd361-3110-4981-86f2-1bfc5b978249",
+      "title": "Create Ad of any product",
+      "output": [
+        "video"
+      ],
+      "domain": "advertising",
+      "summary": "Product + reference video -> Meta-ready video ad."
+    },
+    {
+      "slug": "halloween-video-ad",
+      "spaceId": "sp_ae87eca2-dade-4f78-add2-283fb9a1b0d8",
+      "title": "Halloween Video Ad",
+      "output": [
+        "video"
+      ],
+      "domain": "advertising",
+      "summary": "Seasonal multi-shot video ad with branded end card."
+    },
+    {
+      "slug": "shop-of-horrors",
+      "spaceId": "sp_347ac777-3dd2-4460-bdda-5c568543aadb",
+      "title": "Shop of Horrors",
+      "output": [
+        "image"
+      ],
+      "domain": "advertising",
+      "summary": "Seasonal campaign poster with product and promo copy."
+    },
+    {
+      "slug": "ugc-selfie-video-ad",
+      "spaceId": "sp_d0c34b37-193b-4ad8-8da6-ab843270358e",
+      "title": "UGC Selfie Video Ad",
+      "output": [
+        "video"
+      ],
+      "domain": "video",
+      "summary": "Product photos + creator photo + brief -> 4-15 s selfie-style ad with voiceover, 9:16/1:1/16:9."
+    },
+    {
+      "slug": "ai-ugc-video-ad-creator",
+      "spaceId": "sp_6f1e2ebc-3b72-46dd-a9ce-99fbbb6aa947",
+      "title": "AI UGC Video Ad Creator",
+      "output": [
+        "video"
+      ],
+      "domain": "video",
+      "summary": "Product + creator image + brief -> scripted UGC ad in chosen duration, language, ratio."
+    },
+    {
+      "slug": "ugc-unboxing-clip",
+      "spaceId": "sp_a1a4d482-d3be-43b7-95ac-7697c6970e23",
+      "title": "UGC Unboxing Clip",
+      "output": [
+        "video"
+      ],
+      "domain": "video",
+      "summary": "Product + creator -> 5 s vertical unboxing."
+    },
+    {
+      "slug": "product-in-hand-ugc",
+      "spaceId": "sp_7afb2768-f65f-4d8f-a929-b722751ac0d1",
+      "title": "Product in Hand (UGC)",
+      "output": [
+        "image"
+      ],
+      "domain": "advertising",
+      "summary": "Product + person -> phone-shot style product-in-hand still."
+    },
+    {
+      "slug": "talking-clip",
+      "spaceId": "sp_b2219522-1836-48fd-bd63-8764336a8e9f",
+      "title": "Talking Clip",
+      "output": [
+        "video"
+      ],
+      "domain": "video",
+      "summary": "Face clip + script -> voiced, lip-synced clip up to 30 s."
+    },
+    {
+      "slug": "translate-and-dub",
+      "spaceId": "sp_f17969f0-ac6c-4699-b8ac-f7cc4245e4fb",
+      "title": "Translate and Dub",
+      "output": [
+        "video"
+      ],
+      "domain": "video",
+      "summary": "Talking clip + language -> transcribed, translated, re-voiced, lip-synced, up to 30 s."
+    },
+    {
+      "slug": "add-captions",
+      "spaceId": "sp_6d7c73b2-ec50-41d2-a1a7-cd3e6ef57aa5",
+      "title": "Add Captions",
+      "output": [
+        "video"
+      ],
+      "domain": "video",
+      "summary": "Talking video -> burned word-accurate captions."
+    },
+    {
+      "slug": "add-a-soundtrack",
+      "spaceId": "sp_df9f9909-da98-4b8e-bac3-714a28527409",
+      "title": "Add a Soundtrack",
+      "output": [
+        "video"
+      ],
+      "domain": "video",
+      "summary": "Clip + optional mood -> original music laid under the picture."
+    },
+    {
+      "slug": "extend-video",
+      "spaceId": "sp_835bc366-7af0-4aaa-82e1-fc1e8e2c5ae5",
+      "title": "Extend Video",
+      "output": [
+        "video"
+      ],
+      "domain": "video",
+      "summary": "Clip <= 10 s -> ~5 s continuation with Seedance."
+    },
+    {
+      "slug": "video-upscale",
+      "spaceId": "sp_84040385-b410-4182-9a5b-ac45943990d4",
+      "title": "Video Upscale",
+      "output": [
+        "video"
+      ],
+      "domain": "video",
+      "summary": "Clip <= 20 s -> 2x up to 4K."
+    },
+    {
+      "slug": "multishot-product-clips",
+      "spaceId": "sp_b89fc5aa-1e02-4c72-83e4-151f497e475e",
+      "title": "Multishot Product Clips",
+      "output": [
+        "video"
+      ],
+      "domain": "video",
+      "summary": "One photo -> three 5 s vertical b-roll clips (macro, pedestal, in-hand)."
+    },
+    {
+      "slug": "product-placement-video",
+      "spaceId": "sp_fd325488-9d55-4a42-8a9d-3328885c5fa6",
+      "title": "Product Placement Video",
+      "output": [
+        "video"
+      ],
+      "domain": "video",
+      "summary": "Product + scene -> relit still + 6 s vertical push-in."
+    },
+    {
+      "slug": "phone-photo-to-studio-product-video",
+      "spaceId": "sp_c30426bf-da1a-413a-937b-2c5e046e6a2c",
+      "title": "Phone Photo to Studio Product Video",
+      "output": [
+        "video"
+      ],
+      "domain": "video",
+      "summary": "Casual snap -> packshot + 5 s turntable."
+    },
+    {
+      "slug": "360-product-orbit-video",
+      "spaceId": "sp_1ffe8b9a-3da4-4391-93e2-20fe328159be",
+      "title": "360 Product Orbit Video",
+      "output": [
+        "video"
+      ],
+      "domain": "video",
+      "summary": "One photo -> two angles -> 5 s orbit (Seedance 2.5)."
+    },
+    {
+      "slug": "exploded-view-animation",
+      "spaceId": "sp_f469c58c-7d6d-424e-96a8-3fa0257cf020",
+      "title": "Exploded View Animation",
+      "output": [
+        "video"
+      ],
+      "domain": "motion",
+      "summary": "White-bg packshot -> exploded diagram -> 5 s assemble-to-explode."
+    },
+    {
+      "slug": "feature-callout-orbit",
+      "spaceId": "sp_5dff24a7-854c-454d-a3b4-adb38d6a8b26",
+      "title": "Feature Callout Orbit",
+      "output": [
+        "video"
+      ],
+      "domain": "motion",
+      "summary": "Product + three features -> 8 s orbit with labelled callouts."
+    },
+    {
+      "slug": "zero-gravity-float",
+      "spaceId": "sp_f3debdcf-7c9f-4243-b2fa-721b0351fe81",
+      "title": "Zero-Gravity Float",
+      "output": [
+        "video"
+      ],
+      "domain": "motion",
+      "summary": "Product -> 4-10 s vertical float with ingredients drifting."
+    },
+    {
+      "slug": "tear-away-reveal",
+      "spaceId": "sp_11dfaf0e-a31d-42d6-bb73-16e906ddc8f1",
+      "title": "Tear-Away Reveal",
+      "output": [
+        "video"
+      ],
+      "domain": "motion",
+      "summary": "Product + brand colour -> paper wall tears to reveal product, with sound."
+    },
+    {
+      "slug": "splash-pour",
+      "spaceId": "sp_75b2cd69-996c-43b0-a8bb-774cd9074361",
+      "title": "Splash & Pour",
+      "output": [
+        "video"
+      ],
+      "domain": "motion",
+      "summary": "Can or bottle -> slow-motion plunge and splash, with sound."
+    },
+    {
+      "slug": "stop-motion-unpack",
+      "spaceId": "sp_bbc46786-4933-47b5-90ae-b900ccc03aa3",
+      "title": "Stop-Motion Unpack",
+      "output": [
+        "video"
+      ],
+      "domain": "motion",
+      "summary": "Product (+ box) -> 8 s stop-motion unboxing."
+    },
+    {
+      "slug": "crush-squish",
+      "spaceId": "sp_3b9f532c-3e01-4f4f-bd34-bed205287258",
+      "title": "Crush & Squish",
+      "output": [
+        "video"
+      ],
+      "domain": "motion",
+      "summary": "Product -> ASMR squish-and-bounce vertical clip."
+    },
+    {
+      "slug": "it-s-cake",
+      "spaceId": "sp_d64cabcf-5f59-4eeb-99e6-03bff1ce8e2f",
+      "title": "It's Cake",
+      "output": [
+        "video"
+      ],
+      "domain": "motion",
+      "summary": "Product -> knife reveals cake inside, with sound."
+    },
+    {
+      "slug": "3d-logo-animation",
+      "spaceId": "sp_87e59531-295b-4e63-a8e5-28a527aceb8d",
+      "title": "3D Logo Animation",
+      "output": [
+        "video"
+      ],
+      "domain": "motion",
+      "summary": "Flat logo -> 5 s chrome logo reveal."
+    },
+    {
+      "slug": "textured-logo",
+      "spaceId": "sp_6b57f906-6ed9-4e8b-9dba-55e0b4b3370d",
+      "title": "Textured Logo",
+      "output": [
+        "image"
+      ],
+      "domain": "brand",
+      "summary": "Logo + material photo -> logo rendered in that material."
+    },
+    {
+      "slug": "product-scene-transformation",
+      "spaceId": "sp_92fe2a24-2ac8-44f8-bbfc-af6f20e1214c",
+      "title": "Product Scene Transformation",
+      "output": [
+        "video"
+      ],
+      "domain": "video",
+      "summary": "Product video + new setting -> world transformed, product and camera kept."
+    },
+    {
+      "slug": "custom-character-motion-video-replicator",
+      "spaceId": "sp_4853ea6c-a8d4-4bec-be89-45140768cdae",
+      "title": "Custom Character Motion Video Replicator",
+      "output": [
+        "video"
+      ],
+      "domain": "video",
+      "summary": "Portrait + motion reference -> character mirrors the motion."
+    },
+    {
+      "slug": "character-swap-in-a-trending-video",
+      "spaceId": "sp_a5f0e1ad-aab8-4bd8-8a6c-eb1ce49e840c",
+      "title": "Character Swap in a Trending Video",
+      "output": [
+        "video"
+      ],
+      "domain": "video",
+      "summary": "Trending clip + person -> same moves, new person."
+    },
+    {
+      "slug": "shadow-clone",
+      "spaceId": "shadow_clone_sloosh",
+      "title": "Shadow Clone",
+      "output": [
+        "video"
+      ],
+      "domain": "video",
+      "runner": "legacy",
+      "summary": "Reference video <= 30 s + images -> Motion Transfer or Object Swap."
+    },
+    {
+      "slug": "cinematic-ad-sequence",
+      "spaceId": "sp_01b1902f-9133-4f02-9322-d222dd723e52",
+      "title": "Cinematic Ad Sequence",
+      "output": [
+        "image"
+      ],
+      "domain": "video",
+      "summary": "Product + mood ref -> six widescreen storyboard frames usable as video keyframes."
+    },
+    {
+      "slug": "storyboard-to-animatic",
+      "spaceId": "sp_bb9ec131-be4d-4c30-8dd3-1b9bbadd1611",
+      "title": "Storyboard to Animatic",
+      "output": [
+        "image",
+        "video"
+      ],
+      "domain": "video",
+      "summary": "Script paragraph -> six panels + 18 s animatic."
+    },
+    {
+      "slug": "document-to-cinematic-video",
+      "spaceId": "sp_e1f07e0f-aafe-47b9-af8b-607f98ea1334",
+      "title": "Document to Cinematic Video",
+      "output": [
+        "video"
+      ],
+      "domain": "video",
+      "summary": "Document + style -> 20 s video with voiceover and subtitles."
+    },
+    {
+      "slug": "ai-claymation-wool-explainer-videos",
+      "spaceId": "sp_0dd9dd3a-23d6-47c0-b7cb-6c15ae770898",
+      "title": "AI Claymation and Wool Explainer Videos",
+      "output": [
+        "video"
+      ],
+      "domain": "video",
+      "summary": "Photo + topic -> 10 s clay/wool/3D explainer with speech."
+    },
+    {
+      "slug": "product-multi-angle-shots",
+      "spaceId": "sp_ac71a05c-7c62-433e-9848-51c6ebea16ee",
+      "title": "Product Multi-Angle Shots",
+      "output": [
+        "image"
+      ],
+      "domain": "image",
+      "summary": "One photo -> front, 3/4, side, back, top-down on light grey."
+    },
+    {
+      "slug": "product-in-scene-relight",
+      "spaceId": "sp_ad1f2a61-3a61-4d66-b25f-e5c996b6d6c3",
+      "title": "Product in Scene + Relight",
+      "output": [
+        "image"
+      ],
+      "domain": "image",
+      "summary": "Packshot + scene photo -> placed and relit, upscaled 2x."
+    },
+    {
+      "slug": "white-background-product-studio",
+      "spaceId": "sp_9fa6d972-60d3-4554-8f88-61cf36e7e704",
+      "title": "White Background Product Studio",
+      "output": [
+        "image"
+      ],
+      "domain": "ecommerce",
+      "summary": "Product photos -> marketplace-compliant white background."
+    },
+    {
+      "slug": "background-remover-3",
+      "spaceId": "sp_d4c8e2cd-70f7-49a7-8527-79d05b5aec6f",
+      "title": "Background Remover",
+      "output": [
+        "image"
+      ],
+      "domain": "image",
+      "summary": "Any image -> transparent cut-out."
+    },
+    {
+      "slug": "image-upscaler",
+      "spaceId": "sp_3c83d37b-4ec8-43f0-a214-9118d99c4af1",
+      "title": "Image Upscaler",
+      "output": [
+        "image"
+      ],
+      "domain": "image",
+      "summary": "Topaz 4x upscale."
+    },
+    {
+      "slug": "change-background",
+      "spaceId": "sp_426b86d8-d90b-4196-8a3e-d48e571ce0bc",
+      "title": "Change Background",
+      "output": [
+        "image"
+      ],
+      "domain": "image",
+      "summary": "Portrait + described setting -> relit composite."
+    },
+    {
+      "slug": "change-aspect-ratio",
+      "spaceId": "sp_e4bf89dc-bc67-4c5a-88d9-593f5d382552",
+      "title": "Change Aspect Ratio",
+      "output": [
+        "image"
+      ],
+      "domain": "image",
+      "summary": "Any photo -> outpainted to a new ratio without cropping."
+    },
+    {
+      "slug": "extend-image",
+      "spaceId": "sp_086027cd-dd29-4369-8b53-36545c3256e4",
+      "title": "Extend Image",
+      "output": [
+        "image"
+      ],
+      "domain": "image",
+      "summary": "Outpaint to a chosen frame size."
+    },
+    {
+      "slug": "9-variation-grid",
+      "spaceId": "sp_3897d793-bbaf-4d54-a9d5-83dc4dabd2f3",
+      "title": "9-Variation Grid",
+      "output": [
+        "image"
+      ],
+      "domain": "image",
+      "summary": "Any image -> 3x3 variations, subject kept."
+    },
+    {
+      "slug": "colourway-generator",
+      "spaceId": "sp_2b2d6da5-2223-412e-a812-456661cddc04",
+      "title": "Colourway Generator",
+      "output": [
+        "image"
+      ],
+      "domain": "ecommerce",
+      "summary": "One packshot -> black, forest green, navy, sand colourways."
+    },
+    {
+      "slug": "relight-from-reference-photo",
+      "spaceId": "sp_e18cab48-0d55-4a15-b6d9-022af5151661",
+      "title": "Relight from Reference Photo",
+      "output": [
+        "image"
+      ],
+      "domain": "image",
+      "summary": "Photo + lighting reference -> relit, same subject."
+    },
+    {
+      "slug": "portrait-lighting-variations",
+      "spaceId": "sp_fb7dfcbf-cdaa-49b3-ad28-48e238f6c925",
+      "title": "Portrait Lighting Variations",
+      "output": [
+        "image"
+      ],
+      "domain": "image",
+      "summary": "Portrait -> four classic lighting setups."
+    },
+    {
+      "slug": "skin-enhancer-2",
+      "spaceId": "sp_4f0169cc-4e9c-4df9-8366-9c15fb62a7f3",
+      "title": "Skin Enhancer",
+      "output": [
+        "image"
+      ],
+      "domain": "image",
+      "summary": "Portrait -> realistic skin texture."
+    },
+    {
+      "slug": "colour-palette-transfer",
+      "spaceId": "sp_cb80db92-c138-4a98-951f-a2473eecef4b",
+      "title": "Colour Palette Transfer",
+      "output": [
+        "video"
+      ],
+      "domain": "image",
+      "summary": "Reference -> target palette, tone and mood transfer."
+    },
+    {
+      "slug": "scene-from-multiple-angles",
+      "spaceId": "sp_5696d2db-2c93-41cf-96ca-a9eb15285639",
+      "title": "Scene from Multiple Angles",
+      "output": [
+        "image"
+      ],
+      "domain": "image",
+      "summary": "Place photo -> wide, low, overhead, reverse angles."
+    },
+    {
+      "slug": "amazon-listing-pack",
+      "spaceId": "sp_dacdf1ce-6832-4fd3-b13d-6349e383df9f",
+      "title": "Amazon Listing Pack",
+      "output": [
+        "image"
+      ],
+      "domain": "ecommerce",
+      "summary": "One photo -> white main, lifestyle, in-hand scale, macro."
+    },
+    {
+      "slug": "ghost-mannequin",
+      "spaceId": "sp_4c40a381-cdd1-46de-b5e9-a4767bad432c",
+      "title": "Ghost Mannequin",
+      "output": [
+        "image"
+      ],
+      "domain": "ecommerce",
+      "summary": "On-model photo -> invisible mannequin on white."
+    },
+    {
+      "slug": "garment-extractor",
+      "spaceId": "sp_a55a47d4-cead-4813-9a28-4271bc3000f7",
+      "title": "Garment Extractor",
+      "output": [
+        "image"
+      ],
+      "domain": "ecommerce",
+      "summary": "Extract a garment from a photo."
+    },
+    {
+      "slug": "virtual-try-on-2",
+      "spaceId": "sp_a4048a80-a935-45aa-a784-a46010077c06",
+      "title": "Virtual Try-On",
+      "output": [
+        "image"
+      ],
+      "domain": "ecommerce",
+      "summary": "Person + garment -> same person wearing it."
+    },
+    {
+      "slug": "glasses-try-on",
+      "spaceId": "sp_7d3fb234-c738-4f1f-87e9-28826e27689c",
+      "title": "Glasses Try-On",
+      "output": [
+        "image"
+      ],
+      "domain": "ecommerce",
+      "summary": "Person + frames -> fitted eyewear."
+    },
+    {
+      "slug": "flat-lay-to-on-model-shoot",
+      "spaceId": "sp_f821717f-60f0-4590-abe3-3f81737aa78f",
+      "title": "Flat-Lay to On-Model Shoot",
+      "output": [
+        "image"
+      ],
+      "domain": "ecommerce",
+      "summary": "Model + flat-lay outfit -> four catalogue poses."
+    },
+    {
+      "slug": "fashion-editorial-shots",
+      "spaceId": "sp_ebecf8c9-c72e-4f97-b551-9c610ee34619",
+      "title": "Fashion Editorial Shots",
+      "output": [
+        "image"
+      ],
+      "domain": "ecommerce",
+      "summary": "Model + garment + location -> four editorial frames."
+    },
+    {
+      "slug": "fashion-contact-sheet",
+      "spaceId": "sp_58cb98d9-bb10-4fe6-90e2-6dba033c44cd",
+      "title": "Fashion Contact Sheet",
+      "output": [
+        "image"
+      ],
+      "domain": "ecommerce",
+      "summary": "Model + outfit -> eight-frame contact sheet."
+    },
+    {
+      "slug": "fashion-pose-to-pose-video",
+      "spaceId": "sp_339bbfb7-ce7f-446b-8e18-816fd6d0ad64",
+      "title": "Fashion Pose-to-Pose Video",
+      "output": [
+        "video"
+      ],
+      "domain": "ecommerce",
+      "summary": "Model + garment -> two poses -> 5 s vertical clip (Kling V3 Omni)."
+    },
+    {
+      "slug": "outfit-lookbook-video",
+      "spaceId": "sp_8c345743-710a-4915-a2ed-4ac458e67b53",
+      "title": "Outfit Lookbook Video",
+      "output": [
+        "video"
+      ],
+      "domain": "ecommerce",
+      "summary": "Model + garment -> 6 s vertical lookbook walk."
+    },
+    {
+      "slug": "editorial-fashion-lookbook-studio",
+      "spaceId": "sp_bbe21aa9-fc45-40f2-867d-eca74ce02d30",
+      "title": "Fashion Arcade",
+      "output": [
+        "video",
+        "image"
+      ],
+      "domain": "ecommerce",
+      "summary": "Apparel + faces + backgrounds -> full catalogue suite."
+    },
+    {
+      "slug": "pinterest-style-fashion-campaign",
+      "spaceId": "sp_039a9bcb-a587-4d59-9727-bbe438779f50",
+      "title": "Pinterest-Style Fashion Campaign",
+      "output": [
+        "image"
+      ],
+      "domain": "social",
+      "summary": "Garments + model + brief -> flash-lit campaign set with Pinterest research."
+    },
+    {
+      "slug": "women-kurta-catalogue-creation",
+      "spaceId": "sp_2e833e8a-8ec8-46d5-9ebd-90546cfb00b6",
+      "title": "Women's Kurta Catalogue Creation",
+      "output": [
+        "image"
+      ],
+      "domain": "ecommerce",
+      "summary": "Garments + faces + poses + backgrounds -> ghost mannequin, flat lays, on-model, review PDF."
+    },
+    {
+      "slug": "men-s-kurta-catalogue-creation",
+      "spaceId": "sp_8b53701e-f2f2-49f6-8100-20b804889a9b",
+      "title": "Men's Kurta Catalogue Creation",
+      "output": [
+        "image"
+      ],
+      "domain": "ecommerce",
+      "summary": "Men's variant of the kurta catalogue."
+    },
+    {
+      "slug": "pose-transfer",
+      "spaceId": "sp_7c3679f1-a55e-42d5-9e00-672c3d7707e9",
+      "title": "Pose Transfer",
+      "output": [
+        "image"
+      ],
+      "domain": "ecommerce",
+      "summary": "Person + pose reference -> same person in that pose."
+    },
+    {
+      "slug": "character-turnaround-sheet",
+      "spaceId": "sp_cbc4427e-89f5-4aca-a99e-98216ca9dc65",
+      "title": "Character Turnaround Sheet",
+      "output": [
+        "image"
+      ],
+      "domain": "brand",
+      "summary": "One photo -> five-view turnaround, 2x."
+    },
+    {
+      "slug": "mascot-pose-pack",
+      "spaceId": "sp_5768ff81-3fab-467e-b562-a7d8303c9f39",
+      "title": "Mascot Pose Pack",
+      "output": [
+        "image"
+      ],
+      "domain": "brand",
+      "summary": "Mascot image -> same character in new poses."
+    },
+    {
+      "slug": "consistent-photo-set",
+      "spaceId": "sp_a3cbdd78-08ce-43f8-8c91-6f2e9c318571",
+      "title": "Consistent Photo Set",
+      "output": [
+        "image"
+      ],
+      "domain": "social",
+      "summary": "One person -> four-shot lifestyle series."
+    },
+    {
+      "slug": "character-in-4-scenes",
+      "spaceId": "sp_f7aeefa0-70d9-428b-9173-8e95472b0afd",
+      "title": "Character in 4 Scenes",
+      "output": [
+        "image"
+      ],
+      "domain": "social",
+      "summary": "One person -> four locations, consistent."
+    },
+    {
+      "slug": "selfie-to-studio-photoshoot",
+      "spaceId": "sp_5b12bdc1-cbfb-426c-978a-2d1abe768922",
+      "title": "Selfie to Studio Photoshoot",
+      "output": [
+        "image"
+      ],
+      "domain": "social",
+      "summary": "Selfie + look -> editorial studio portrait."
+    },
+    {
+      "slug": "headshot-generator",
+      "spaceId": "sp_874443f3-da27-45ff-9abf-3bf287a23923",
+      "title": "Headshot Generator",
+      "output": [
+        "image"
+      ],
+      "domain": "social",
+      "summary": "Selfie -> three professional headshots."
+    },
+    {
+      "slug": "professional-photo-pack",
+      "spaceId": "sp_706af9cc-0aef-4123-84ce-8ddecd8ff4d2",
+      "title": "Professional Photo Pack",
+      "output": [
+        "image"
+      ],
+      "domain": "social",
+      "summary": "1-3 selfies -> headshot, resume photo, speaker portrait, LinkedIn banner."
+    },
+    {
+      "slug": "youtube-thumbnail-maker",
+      "spaceId": "sp_8a633fe1-a201-43d3-bc2e-13d9cfa47da6",
+      "title": "YouTube Thumbnail Maker",
+      "output": [
+        "image"
+      ],
+      "domain": "social",
+      "summary": "Face + title -> 16:9 thumbnail."
+    },
+    {
+      "slug": "social-profile-kit",
+      "spaceId": "sp_84da3f2b-907b-4717-9d87-b594335e42d8",
+      "title": "Social Profile Kit",
+      "output": [
+        "image"
+      ],
+      "domain": "brand",
+      "summary": "Logo + brand colours -> profile image, highlight covers, banners."
+    },
+    {
+      "slug": "logo-from-brief",
+      "spaceId": "sp_4a9b3e6f-7d74-42ef-a57c-0268d5eac63d",
+      "title": "Logo from Brief",
+      "output": [
+        "image"
+      ],
+      "domain": "brand",
+      "summary": "Brand name + description + style -> hero logo + variations."
+    },
+    {
+      "slug": "brand-board",
+      "spaceId": "sp_302a255f-4627-4d8e-b761-f21f3e066047",
+      "title": "Brand Board",
+      "output": [
+        "image"
+      ],
+      "domain": "brand",
+      "summary": "Logo + details -> brand board pages (palette, type, mood)."
+    },
+    {
+      "slug": "palette-from-moodboard-images",
+      "spaceId": "sp_3e1fe0c1-8274-4dae-a539-ceda10540e25",
+      "title": "Palette from Moodboard Images",
+      "output": [
+        "image"
+      ],
+      "domain": "brand",
+      "summary": "Moodboard images -> palette card with hex codes."
+    },
+    {
+      "slug": "brand-icon-set",
+      "spaceId": "sp_a0cf6c8f-a934-4b2e-9122-6cbf48b37ebd",
+      "title": "Brand Icon Set",
+      "output": [
+        "image"
+      ],
+      "domain": "brand",
+      "summary": "Logo + icon list -> 3x3 matching icon set."
+    },
+    {
+      "slug": "logo-to-business-card-stationery",
+      "spaceId": "sp_65ec415a-23ed-48ac-a5fb-16b5d277d258",
+      "title": "Logo to Business Card & Stationery",
+      "output": [
+        "image"
+      ],
+      "domain": "brand",
+      "summary": "Logo + details -> stationery flat lays."
+    },
+    {
+      "slug": "merch-mockups",
+      "spaceId": "sp_1d276d32-b66f-487d-9563-6cf35cfc7a94",
+      "title": "Merch Mockups",
+      "output": [
+        "image"
+      ],
+      "domain": "brand",
+      "summary": "Logo -> caps, mugs, apparel mockups."
+    },
+    {
+      "slug": "packaging-mockup-pack",
+      "spaceId": "sp_ff2ac65f-9d6d-42da-aab4-f5941d306375",
+      "title": "Packaging Mockup Pack",
+      "output": [
+        "image"
+      ],
+      "domain": "brand",
+      "summary": "Flat label/box art -> pouches, bottles mockups."
+    },
+    {
+      "slug": "packaging-from-dieline",
+      "spaceId": "sp_aa30bd47-c22d-4cf2-8675-da9e68bcf53c",
+      "title": "Packaging from Dieline",
+      "output": [
+        "image"
+      ],
+      "domain": "brand",
+      "summary": "Dieline -> folded 3D box packshot."
+    },
+    {
+      "slug": "label-designer",
+      "spaceId": "sp_868f26a7-6e0a-47db-9fc7-eab56e6498c8",
+      "title": "Label Designer",
+      "output": [
+        "image"
+      ],
+      "domain": "brand",
+      "summary": "Brand facts -> label concepts + packaging previews."
+    },
+    {
+      "slug": "magazine-cover-packaging",
+      "spaceId": "sp_931542eb-4d58-409b-a634-71fba22555d6",
+      "title": "Magazine Cover & Packaging",
+      "output": [
+        "image"
+      ],
+      "domain": "brand",
+      "summary": "Product + brand name -> magazine cover, box, print ad."
+    },
+    {
+      "slug": "commercial-food-photo-studio",
+      "spaceId": "sp_2f6333af-548d-4ddc-8757-cbdc0897a299",
+      "title": "Commercial Food Photo Studio",
+      "output": [
+        "image"
+      ],
+      "domain": "ecommerce",
+      "summary": "Dish photo -> three commercial food images."
+    },
+    {
+      "slug": "studio-perfume-bottle-shot",
+      "spaceId": "sp_afde8e76-d3e2-4378-bf2b-758c948bafb5",
+      "title": "Studio Perfume Bottle Shot",
+      "output": [
+        "image"
+      ],
+      "domain": "ecommerce",
+      "summary": "Perfume bottle studio packshot."
+    },
+    {
+      "slug": "product-in-room",
+      "spaceId": "sp_4a61d2b9-ae70-426a-8009-723b0fad53ba",
+      "title": "Product in Room",
+      "output": [
+        "image"
+      ],
+      "domain": "ecommerce",
+      "summary": "Room + furniture packshot -> placed at scale, relit."
+    },
+    {
+      "slug": "room-restyle",
+      "spaceId": "sp_173306e5-303e-44a1-a4ce-12d66432ac7c",
+      "title": "Room Restyle",
+      "output": [
+        "image"
+      ],
+      "domain": "ecommerce",
+      "summary": "Room photo + style -> redesigned room."
+    },
+    {
+      "slug": "bench-scene-pack",
+      "spaceId": "sp_50eb9d35-7191-401c-9748-f869a2884251",
+      "title": "BENCH Scene Pack",
+      "output": [
+        "image"
+      ],
+      "domain": "image",
+      "owned": true,
+      "summary": "Own workspace benchmark: product photos -> studio scene pack."
+    },
+    {
+      "slug": "bench-input-types",
+      "spaceId": "sp_dc417f27-8ba3-4e75-8de1-192856108a0f",
+      "title": "BENCH Input Types",
+      "output": [
+        "image"
+      ],
+      "domain": "authoring",
+      "owned": true,
+      "summary": "Own workspace benchmark of every input node type."
+    },
+    {
+      "slug": "seasonal-ad-refresh",
+      "spaceId": "sp_5a0357a9-3788-41a5-aac8-a47be3b83ce0",
+      "title": "Seasonal Ad Refresh",
+      "output": [
+        "image"
+      ],
+      "domain": "advertising",
+      "summary": "One product photo -> Christmas, Diwali and summer campaign images."
+    },
+    {
+      "slug": "style-match",
+      "spaceId": "sp_6bd430aa-e460-4882-a9bb-d2ccd8a012ca",
+      "title": "Style Match",
+      "output": [
+        "image"
+      ],
+      "domain": "image",
+      "summary": "Product + any reference look -> product shot in that grade, light, mood and set."
+    },
+    {
+      "slug": "instagram-carousel",
+      "spaceId": "sp_cd0e5323-1206-4b40-ac77-769e69e64d22",
+      "title": "Instagram Carousel",
+      "output": [
+        "image"
+      ],
+      "domain": "social",
+      "summary": "Product + name -> four-slide carousel in one art direction."
+    },
+    {
+      "slug": "collection-banner",
+      "spaceId": "sp_d417953b-7147-4d0e-ab4d-dbd8710ad2d2",
+      "title": "Collection Banner",
+      "output": [
+        "image"
+      ],
+      "domain": "ecommerce",
+      "summary": "Three products -> wide Shopify collection banner with headline space, 2x."
+    },
+    {
+      "slug": "on-model-studio-shoot",
+      "spaceId": "sp_7e415af3-2fec-4ce8-b900-e131ac5743c0",
+      "title": "On-Model Studio Shoot",
+      "output": [
+        "image"
+      ],
+      "domain": "ecommerce",
+      "summary": "Garment front/back + model + backdrop + poses -> hero + per-pose on-model shots."
+    },
+    {
+      "slug": "multi-camera-edit",
+      "spaceId": "sp_b0df29e8-4422-4a62-9442-d524355d5453",
+      "title": "Multi-Camera Edit",
+      "output": [
+        "video"
+      ],
+      "domain": "video",
+      "summary": "Talking clip + face photo -> 4-6 camera angles re-shot with cuts on phrases."
+    },
+    {
+      "slug": "jewellery-on-model",
+      "spaceId": "sp_c23d9c5a-7c0a-46e3-aad1-06c03d5b97da",
+      "title": "Jewellery on Model",
+      "output": [
+        "image"
+      ],
+      "domain": "ecommerce",
+      "summary": "Model + jewellery packshot -> on-model beauty close-up."
+    },
+    {
+      "slug": "food-styling",
+      "spaceId": "sp_299f9406-4cf7-4a93-83d7-222fcfce0c9b",
+      "title": "Food Styling",
+      "output": [
+        "image"
+      ],
+      "domain": "ecommerce",
+      "summary": "Phone snap of a dish -> styled food photograph."
+    },
+    {
+      "slug": "sketch-to-product-render",
+      "spaceId": "sp_ec203cd9-73de-4a76-992f-f526b914f9ac",
+      "title": "Sketch to Product Render",
+      "output": [
+        "image"
+      ],
+      "domain": "image",
+      "summary": "Product sketch + materials -> photoreal studio render."
+    },
+    {
+      "slug": "cardboard-world",
+      "spaceId": "sp_6a9368a0-dbdf-45e1-bdbd-80a89c919adf",
+      "title": "Cardboard World",
+      "output": [
+        "video"
+      ],
+      "domain": "motion",
+      "summary": "Product -> 6 s cardboard stop-motion world."
+    },
+    {
+      "slug": "festival-greeting-and-animation",
+      "spaceId": "sp_7aa7bbb1-29b5-4ae2-b152-80d8ac8f7d16",
+      "title": "Festival Greeting and Animation",
+      "output": [
+        "video"
+      ],
+      "domain": "social",
+      "summary": "Photo + festival name -> stylised 3D greeting card image and matching clip."
+    }
+  ]
+}

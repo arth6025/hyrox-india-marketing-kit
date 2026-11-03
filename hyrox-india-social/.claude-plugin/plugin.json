@@ -1,0 +1,8 @@
+{
+  "name": "hyrox-india-social",
+  "displayName": "HYROX India Social Templates",
+  "version": "1.0.0",
+  "description": "HYROX's locked social templates as a Claude skill: feed (3:4) and story covers, content slides and finishers, rendered to PNG with the HYROX logotype, type and colour rules.",
+  "author": { "name": "HYROX India x peakst8" },
+  "keywords": ["hyrox", "social", "instagram", "templates", "brand"]
+}

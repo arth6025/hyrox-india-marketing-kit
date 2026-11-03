@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sloosh.ai/schemas/skill-manifest/1.0.json",
+  "title": "Sloosh skill manifest",
+  "description": "The YAML frontmatter of every skills/<id>/SKILL.md. `name` and `description` are the Agent Skills standard fields that Claude reads to decide when to load a skill. Everything under `metadata` is the Sloosh manifest: it drives registry/skills.json, CATALOG.md, the router and the validator, and it is ignored by hosts that do not know it.",
+  "type": "object",
+  "required": ["name", "description", "metadata"],
+  "additionalProperties": true,
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "maxLength": 64,
+      "description": "Skill id. Must equal the folder name."
+    },
+    "description": {
+      "type": "string",
+      "minLength": 60,
+      "maxLength": 1024,
+      "description": "What the skill makes and when to use it. This is the only text Claude sees before loading the skill, so it carries the trigger phrases. One sentence of what, one of when, one of what it is NOT for."
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["version", "category", "tier", "status", "cost", "surfaces"],
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "description": "Semver of this skill alone. Bump patch for prompt tweaks, minor for new inputs or steps, major when inputs or outputs change shape."
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "orchestration",
+            "image",
+            "advertising",
+            "video",
+            "motion",
+            "brand",
+            "social",
+            "ecommerce",
+            "strategy",
+            "authoring"
+          ]
+        },
+        "subcategory": { "type": "string", "maxLength": 40 },
+        "tier": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3,
+          "description": "Priority for the router and the roadmap. 1 = core daily-use, 2 = frequent, 3 = niche."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["ready", "ready-space", "needs-validation", "needs-local-agent", "proposed", "deprecated"],
+          "description": "ready: only verified MCP tools and models. ready-space: depends on a published public Space verified by id on the date in verified_on. needs-validation: the tool path exists but an end-to-end run has not been observed. needs-local-agent: needs a coding agent with a shell on the user's computer. proposed: needs an MCP or product change listed in docs/GAP-ANALYSIS.md. deprecated: kept for routing only; `superseded_by` names the replacement."
+        },
+        "superseded_by": { "type": "string" },
+        "verified_on": { "type": "string", "format": "date" },
+        "cost": {
+          "type": "string",
+          "enum": ["none", "low", "medium", "high", "variable"],
+          "description": "none: no credits (planning, text, analysis). low: one to four images. medium: a handful of images or one short clip. high: several clips or a multi-step Space. variable: depends on count."
+        },
+        "surfaces": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "enum": ["claude-app", "claude-code", "cowork", "sloosh-native"] },
+          "description": "Where the skill can run today. sloosh-native is aspirational until the product ships a skill runner (see GAP-ANALYSIS)."
+        },
+        "mcp_tools": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[a-z_]+$" },
+          "description": "Sloosh MCP tools the skill calls, bare names. The validator checks every name against registry/capabilities.json."
+        },
+        "spaces": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["slug", "spaceId"],
+            "properties": {
+              "slug": { "type": "string" },
+              "spaceId": { "type": "string" },
+              "role": { "type": "string", "enum": ["primary", "alternative", "fallback"] }
+            }
+          },
+          "description": "Published Spaces the skill may run. Always re-resolved at run time with list_spaces; ids here are hints that let the validator and catalog cross-check."
+        },
+        "models": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "image": { "type": "array", "items": { "type": "string" } },
+            "video": { "type": "array", "items": { "type": "string" } },
+            "text": { "type": "array", "items": { "type": "string" } }
+          },
+          "description": "Preferred model ids, in order. Skills must still call list_models at run time; ids rotate."
+        },
+        "node_kinds": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Canvas node kinds the skill wires when it authors a canvas."
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "type", "required"],
+            "properties": {
+              "name": { "type": "string" },
+              "type": { "type": "string", "enum": ["text", "image", "images", "video", "audio", "url", "document", "brief", "brand-kit", "number", "choice", "asset-ref"] },
+              "required": { "type": "boolean" },
+              "description": { "type": "string" }
+            }
+          }
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "type"],
+            "properties": {
+              "name": { "type": "string" },
+              "type": { "type": "string", "enum": ["image", "images", "video", "videos", "audio", "pdf", "text", "json", "brief", "brand-kit", "plan", "canvas", "space"] },
+              "description": { "type": "string" }
+            }
+          }
+        },
+        "chains_to": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Skills whose inputs this skill's outputs satisfy. Drives orchestration suggestions."
+        },
+        "chains_from": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "references": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Shared reference files (relative to the plugin root) the skill tells Claude to read when needed."
+        },
+        "examples": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "maxLength": 200 },
+          "description": "Example user prompts that should route to this skill."
+        },
+        "adapted_from": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Source material credited, e.g. marketing-skills/ad-creative, higgsfield/product-photoshoot, sloosh-plugin-1.1.0/ad-variants."
+        },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

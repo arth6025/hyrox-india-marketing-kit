@@ -1,0 +1,14 @@
+name: validate-skills
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install pyyaml jsonschema
+      - run: python3 scripts/validate_skills.py --evals
+      - run: python3 scripts/build_registry.py && python3 scripts/build_capability_map.py
+      - name: generated files are committed
+        run: git diff --exit-code -- registry/skills.json CATALOG.md docs/CAPABILITY-MAP.md || (echo "run the build scripts and commit"; exit 1)

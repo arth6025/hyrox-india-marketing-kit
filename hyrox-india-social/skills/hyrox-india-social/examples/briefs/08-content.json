@@ -1,0 +1,6 @@
+{"format":"feed","out":"../renders/08-content","label":"RACE DAY","slides":[
+ {"template":"schedule","headline":"RACE\nDAY","rows":[{"date":"26.11.26","time":"07:00","activity":"Doors open"},{"date":"26.11.26","time":"08:00","activity":"First heat"},{"date":"26.11.26","time":"13:00","activity":"Relays and doubles"},{"date":"26.11.26","time":"18:00","activity":"Awards"}]},
+ {"template":"checklist","headline":"WHAT TO\nBRING","yes":["Race-day ID","Running shoes","Water bottle"],"no":["Headphones on course","Spikes","Glass bottles"],"yes_title":"BRING","no_title":"LEAVE AT HOME","subline":"DROP A SUBLINE HERE."},
+ {"template":"text","statement":"Every finisher gets a time, a medal and a story. Every spectator gets the best seat in fitness racing.","notes":["Doors open 07:00.","Spectator entry is free.","Live results on the HYROX app."],"subline":"DROP A SUBLINE HERE."},
+ {"template":"cta","ground":"pain-inc","label":"PAIN INC.","headline":"WELCOME\nTO PAIN\nINC.","subline":"SWIPE TO APPLY >"}
+]}

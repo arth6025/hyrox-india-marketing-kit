@@ -1,0 +1,209 @@
+[
+ {
+  "type": "add-node",
+  "id": "nd_PRODUCT",
+  "kind": "image-input",
+  "position": {
+   "x": 0,
+   "y": 0
+  },
+  "name": "Product photo"
+ },
+ {
+  "type": "add-node",
+  "id": "nd_P1",
+  "kind": "prompt",
+  "position": {
+   "x": 300,
+   "y": -200
+  },
+  "config": {
+   "text": "The product from the reference on a seamless white studio sweep, soft key from the left, 50 mm, centred. Keep label and proportions exact. No text."
+  }
+ },
+ {
+  "type": "add-node",
+  "id": "nd_P2",
+  "kind": "prompt",
+  "position": {
+   "x": 300,
+   "y": 0
+  },
+  "config": {
+   "text": "The product from the reference on wet black slate, morning window light from the left, 85 mm, negative space top third. Keep label exact. No text."
+  }
+ },
+ {
+  "type": "add-node",
+  "id": "nd_P3",
+  "kind": "prompt",
+  "position": {
+   "x": 300,
+   "y": 200
+  },
+  "config": {
+   "text": "The product from the reference held in a hand at arm's length, phone-shot look, daylight kitchen. Keep label exact. No text."
+  }
+ },
+ {
+  "type": "add-node",
+  "id": "nd_G1",
+  "kind": "image-gen",
+  "position": {
+   "x": 600,
+   "y": -200
+  },
+  "config": {
+   "model": "gemini-3-pro-image-preview",
+   "aspect_ratio": "4:5",
+   "image_size": "2K"
+  }
+ },
+ {
+  "type": "add-node",
+  "id": "nd_G2",
+  "kind": "image-gen",
+  "position": {
+   "x": 600,
+   "y": 0
+  },
+  "config": {
+   "model": "gemini-3-pro-image-preview",
+   "aspect_ratio": "4:5",
+   "image_size": "2K"
+  }
+ },
+ {
+  "type": "add-node",
+  "id": "nd_G3",
+  "kind": "image-gen",
+  "position": {
+   "x": 600,
+   "y": 200
+  },
+  "config": {
+   "model": "gemini-3-pro-image-preview",
+   "aspect_ratio": "4:5",
+   "image_size": "2K"
+  }
+ },
+ {
+  "type": "add-node",
+  "id": "nd_PDF",
+  "kind": "pdf-export",
+  "position": {
+   "x": 900,
+   "y": 0
+  }
+ },
+ {
+  "type": "connect",
+  "edge": {
+   "id": "eg_01",
+   "source": "nd_P1",
+   "sourceHandle": "text",
+   "target": "nd_G1",
+   "targetHandle": "prompt"
+  }
+ },
+ {
+  "type": "connect",
+  "edge": {
+   "id": "eg_02",
+   "source": "nd_P2",
+   "sourceHandle": "text",
+   "target": "nd_G2",
+   "targetHandle": "prompt"
+  }
+ },
+ {
+  "type": "connect",
+  "edge": {
+   "id": "eg_03",
+   "source": "nd_P3",
+   "sourceHandle": "text",
+   "target": "nd_G3",
+   "targetHandle": "prompt"
+  }
+ },
+ {
+  "type": "connect",
+  "edge": {
+   "id": "eg_04",
+   "source": "nd_PRODUCT",
+   "sourceHandle": "image",
+   "target": "nd_G1",
+   "targetHandle": "reference_images__0"
+  }
+ },
+ {
+  "type": "connect",
+  "edge": {
+   "id": "eg_05",
+   "source": "nd_PRODUCT",
+   "sourceHandle": "image",
+   "target": "nd_G2",
+   "targetHandle": "reference_images__0"
+  }
+ },
+ {
+  "type": "connect",
+  "edge": {
+   "id": "eg_06",
+   "source": "nd_PRODUCT",
+   "sourceHandle": "image",
+   "target": "nd_G3",
+   "targetHandle": "reference_images__0"
+  }
+ },
+ {
+  "type": "connect",
+  "edge": {
+   "id": "eg_07",
+   "source": "nd_G1",
+   "sourceHandle": "image",
+   "target": "nd_PDF",
+   "targetHandle": "images__0"
+  }
+ },
+ {
+  "type": "connect",
+  "edge": {
+   "id": "eg_08",
+   "source": "nd_G2",
+   "sourceHandle": "image",
+   "target": "nd_PDF",
+   "targetHandle": "images__1"
+  }
+ },
+ {
+  "type": "connect",
+  "edge": {
+   "id": "eg_09",
+   "source": "nd_G3",
+   "sourceHandle": "image",
+   "target": "nd_PDF",
+   "targetHandle": "images__2"
+  }
+ },
+ {
+  "type": "set-output",
+  "nodeId": "nd_G1",
+  "include": true
+ },
+ {
+  "type": "set-output",
+  "nodeId": "nd_G2",
+  "include": true
+ },
+ {
+  "type": "set-output",
+  "nodeId": "nd_G3",
+  "include": true
+ },
+ {
+  "type": "set-output",
+  "nodeId": "nd_PDF",
+  "include": true
+ }
+]

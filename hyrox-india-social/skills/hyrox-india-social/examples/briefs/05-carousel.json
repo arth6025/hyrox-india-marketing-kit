@@ -1,0 +1,6 @@
+{"format":"feed","out":"../renders/05-carousel","label":"HYROX INDIA","slides":[
+ {"template":"cover-full","headline":"8 STATIONS.\n8 KM.\nONE RACE.","photo":"sled-push","subline":"Swipe for the breakdown >>"},
+ {"template":"subheads","headline":"HOW THE\nRACE WORKS","items":[{"title":"RUN","text":"1 km between every station."},{"title":"STATION","text":"SkiErg, sled push, sled pull, burpee broad jumps."},{"title":"STATION","text":"Row, farmers carry, sandbag lunges, wall balls."}],"subline":"HYROX.COM"},
+ {"template":"stats","headline":"LAST SEASON\nIN INDIA","photo":"rower-woman","stats":[{"label":"PARTICIPANTS","value":"6,512"},{"label":"CITIES","value":"03"}]},
+ {"template":"cta","headline":"YOUR RACE\nSTARTS HERE","button":"REGISTER NOW","subline":"LINK IN BIO >"}
+]}

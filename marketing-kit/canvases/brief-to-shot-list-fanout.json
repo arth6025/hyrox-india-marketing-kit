@@ -1,0 +1,202 @@
+[
+ {
+  "type": "add-node",
+  "id": "nd_BRIEF",
+  "kind": "text-input",
+  "position": {
+   "x": 0,
+   "y": 0
+  },
+  "name": "Brief"
+ },
+ {
+  "type": "add-node",
+  "id": "nd_PRODUCT",
+  "kind": "image-input",
+  "position": {
+   "x": 0,
+   "y": 200
+  },
+  "name": "Product photo"
+ },
+ {
+  "type": "add-node",
+  "id": "nd_PLAN",
+  "kind": "prompt",
+  "position": {
+   "x": 300,
+   "y": 0
+  },
+  "config": {
+   "text": "From this brief write 4 shot descriptions for product photos, one per line, each under 25 words, no numbering: {{brief}}"
+  }
+ },
+ {
+  "type": "add-variable",
+  "nodeId": "nd_PLAN",
+  "name": "brief"
+ },
+ {
+  "type": "connect",
+  "edge": {
+   "id": "eg_01",
+   "source": "nd_BRIEF",
+   "sourceHandle": "text",
+   "target": "nd_PLAN",
+   "targetHandle": "brief"
+  }
+ },
+ {
+  "type": "add-node",
+  "id": "nd_LLM",
+  "kind": "text-gen",
+  "position": {
+   "x": 600,
+   "y": 0
+  },
+  "config": {
+   "model": "claude-sonnet-4-6",
+   "temperature": 0.7,
+   "max_tokens": 800
+  }
+ },
+ {
+  "type": "connect",
+  "edge": {
+   "id": "eg_02",
+   "source": "nd_PLAN",
+   "sourceHandle": "text",
+   "target": "nd_LLM",
+   "targetHandle": "prompt"
+  }
+ },
+ {
+  "type": "add-node",
+  "id": "nd_ITER",
+  "kind": "text-iterator",
+  "position": {
+   "x": 900,
+   "y": 0
+  }
+ },
+ {
+  "type": "connect",
+  "edge": {
+   "id": "eg_03",
+   "source": "nd_LLM",
+   "sourceHandle": "text",
+   "target": "nd_ITER",
+   "targetHandle": "values_port"
+  }
+ },
+ {
+  "type": "add-node",
+  "id": "nd_SHOT",
+  "kind": "prompt",
+  "position": {
+   "x": 1200,
+   "y": 0
+  },
+  "config": {
+   "text": "The product from the reference: {{shot}}. Keep label and proportions exact. No text."
+  }
+ },
+ {
+  "type": "add-variable",
+  "nodeId": "nd_SHOT",
+  "name": "shot"
+ },
+ {
+  "type": "connect",
+  "edge": {
+   "id": "eg_04",
+   "source": "nd_ITER",
+   "sourceHandle": "text",
+   "target": "nd_SHOT",
+   "targetHandle": "shot"
+  }
+ },
+ {
+  "type": "add-node",
+  "id": "nd_GEN",
+  "kind": "image-gen",
+  "position": {
+   "x": 1500,
+   "y": 0
+  },
+  "config": {
+   "model": "gemini-3-pro-image-preview",
+   "aspect_ratio": "4:5",
+   "image_size": "2K",
+   "enable_checkpoint": false
+  }
+ },
+ {
+  "type": "connect",
+  "edge": {
+   "id": "eg_05",
+   "source": "nd_SHOT",
+   "sourceHandle": "text",
+   "target": "nd_GEN",
+   "targetHandle": "prompt"
+  }
+ },
+ {
+  "type": "connect",
+  "edge": {
+   "id": "eg_06",
+   "source": "nd_PRODUCT",
+   "sourceHandle": "image",
+   "target": "nd_GEN",
+   "targetHandle": "reference_images__0"
+  }
+ },
+ {
+  "type": "add-node",
+  "id": "nd_BUNDLE",
+  "kind": "bundle",
+  "position": {
+   "x": 1800,
+   "y": 0
+  }
+ },
+ {
+  "type": "connect",
+  "edge": {
+   "id": "eg_07",
+   "source": "nd_GEN",
+   "sourceHandle": "image",
+   "target": "nd_BUNDLE",
+   "targetHandle": "image"
+  }
+ },
+ {
+  "type": "add-node",
+  "id": "nd_PDF",
+  "kind": "pdf-export",
+  "position": {
+   "x": 2100,
+   "y": 0
+  }
+ },
+ {
+  "type": "connect",
+  "edge": {
+   "id": "eg_08",
+   "source": "nd_BUNDLE",
+   "sourceHandle": "images",
+   "target": "nd_PDF",
+   "targetHandle": "images__0"
+  }
+ },
+ {
+  "type": "set-output",
+  "nodeId": "nd_BUNDLE",
+  "include": true
+ },
+ {
+  "type": "set-output",
+  "nodeId": "nd_PDF",
+  "include": true
+ }
+]
